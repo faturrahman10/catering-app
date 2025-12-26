@@ -13,6 +13,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->integer('price');
+            $table->string('image');
             $table->text('description')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
