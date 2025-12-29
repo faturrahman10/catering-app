@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Menu;
 use App\Models\Category;
 
@@ -79,6 +80,10 @@ class MenuController extends Controller
 
     public function destroy(Menu $menu)
     {
+        if ($menu->image && Storage::disk('public')->exists($menu->image)) {
+            Storage::disk('public')->delete($menu->image);
+        }
+
         $menu->delete();
         return redirect()->route('menus.index');
     }
