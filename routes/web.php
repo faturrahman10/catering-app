@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,6 +24,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
         return 'HALAMAN ADMIN';
     })->name('admin.dashboard');
     Route::resource('menus', MenuController::class);
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('categories', CategoryController::class);
 });
 
 require __DIR__.'/auth.php';
