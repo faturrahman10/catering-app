@@ -24,9 +24,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
         return 'HALAMAN ADMIN';
     })->name('admin.dashboard');
     Route::resource('menus', MenuController::class);
-});
-
-Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('categories', CategoryController::class);
 });
 
