@@ -17,7 +17,7 @@ class MenuController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('is_active', true)->get();
         return view('menus.create', compact('categories'));
     }
 
@@ -51,7 +51,7 @@ class MenuController extends Controller
 
     public function edit(Menu $menu)
     {
-        $categories = Category::all();
+        $categories = Category::where('is_active', true)->get();
         return view('menus.edit', compact('manu', 'categories'));
     }
 
