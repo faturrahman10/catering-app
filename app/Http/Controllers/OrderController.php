@@ -36,7 +36,6 @@ class OrderController extends Controller
         ]);
 
         DB::transaction(function () use ($request) {
-            // 3️⃣ BUAT ORDER UTAMA
             $order = Order::create([
                 'customer_id' => $request->customer_id,
                 'order_date' => $request->order_date,
