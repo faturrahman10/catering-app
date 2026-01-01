@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     })->name('admin.dashboard');
     Route::resource('menus', MenuController::class);
     Route::resource('categories', CategoryController::class);
+    Route::resource('orders', OrderController::class);
 });
 
 require __DIR__.'/auth.php';
