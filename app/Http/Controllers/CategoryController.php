@@ -9,7 +9,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::latest()->get();
+
         return view('categories.index', compact('categories'));
     }
 
@@ -20,12 +21,12 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:categories,name',
         ]);
 
         Category::create([
-            'name' => $request->name,
+            'name' => $validated['name'],
             'is_active' => $request->has('is_active'),
         ]);
 
@@ -39,22 +40,24 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
         ]);
 
         $category->update([
-            'name' => $request->name,
+            'name' => $validated['name'],
             'is_active' => $request->has('is_active'),
         ]);
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diupdate');
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil diperbarui');
     }
 
     public function destroy(Category $category)
     {
-        $category->delete();
+        $category->update([
+            'is_active' => false,
+        ]);
 
-        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dihapus');
+        return redirect()->route('categories.index')->with('success', 'Kategori berhasil dinonaktifkan');
     }
 }
