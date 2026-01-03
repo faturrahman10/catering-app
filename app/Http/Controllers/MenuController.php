@@ -23,25 +23,23 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'category_id' => 'required',
-            'price' => 'required|numeric',
-            'image' => 'required|image',
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric|min:0',
+            'image' => 'required|image|max:2048',
             'description' => 'nullable|string',
         ]);
 
-        $data = $request->all();
-
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->stores('menus', 'public');
+            $data['image'] = $request->file('image')->store('menus', 'public');
         }
 
-        $data['is_active'] = $request->has('is_active');
+        $data['is_active'] = $request->boolean('is_active');
 
         Menu::create($data);
 
-        return redirect()->route('menus.index');
+        return redirect()->route('menus.index')->with('success', 'Menu berhasil ditambahkan');
     }
 
     public function show(string $id)
@@ -52,30 +50,32 @@ class MenuController extends Controller
     public function edit(Menu $menu)
     {
         $categories = Category::where('is_active', true)->get();
-        return view('menus.edit', compact('manu', 'categories'));
+        return view('menus.edit', compact('menu', 'categories'));
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Menu $menu)
     {
-        $request->validate([
-            'name' => 'required',
-            'category_id' => 'required',
-            'price' => 'required|numeric',
-            'image' => 'required|image',
-            'description' => 'required|string',
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|image|max:2048',
+            'description' => 'nullable|string',
         ]);
 
-        $data = $request->all();
-
         if ($request->hasFile('image')) {
+            if ($menu->image && Storage::disk('public')->exists($menu->image)) {
+                Storage::disk('public')->delete($menu->image);
+            }
+
             $data['image'] = $request->file('image')->store('menus', 'public');
         }
 
-        $data['is_active'] = $request->has('is_active');
+        $data['is_active'] = $request->boolean('is_active');
 
-        Menu::update($data);
+        $menu->update($data);
 
-        return redirect()->route('menus.index');
+        return redirect()->route('menus.index')->with('success', 'Menu berhasil diperbarui');
     }
 
     public function destroy(Menu $menu)
@@ -85,6 +85,6 @@ class MenuController extends Controller
         }
 
         $menu->delete();
-        return redirect()->route('menus.index');
+        return redirect()->route('menus.index')->with('success', 'Menu berhasil dihapus');
     }
 }
