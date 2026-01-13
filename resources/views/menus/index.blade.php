@@ -49,7 +49,7 @@
         </div>
 
         {{-- Stats Cards --}}
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6 md:mb-8">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6 md:mb-8">
             <div class="bg-white dark:bg-gray-900 rounded-lg p-4 border border-gray-100 dark:border-gray-800">
                 <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Total Menu</p>
                 <p class="text-2xl font-bold text-gray-900 dark:text-white" x-text="menus.length">0</p>
@@ -59,11 +59,6 @@
                 <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Menu Aktif</p>
                 <p class="text-2xl font-bold text-green-600 dark:text-green-400"
                     x-text="menus.filter(m => m.is_active).length">0</p>
-            </div>
-
-            <div class="bg-white dark:bg-gray-900 rounded-lg p-4 border border-gray-100 dark:border-gray-800">
-                <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Hasil Filter</p>
-                <p class="text-2xl font-bold text-blue-600 dark:text-blue-400" x-text="filteredMenus.length">0</p>
             </div>
 
             <div class="bg-white dark:bg-gray-900 rounded-lg p-4 border border-gray-100 dark:border-gray-800">
