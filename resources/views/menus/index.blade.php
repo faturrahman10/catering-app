@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('page-title', 'Menu')
 
-    {{-- Page Content dengan Alpine.js Filter --}}
+    {{-- Page Content Alpine.js Filter --}}
     <div class="p-4 md:p-6 lg:p-8" x-data="{
         searchTerm: '',
         statusFilter: 'all',
@@ -34,11 +34,13 @@
                     </p>
                 </div>
 
+                {{-- Menggunakan link --}}
                 <a href="{{ route('menus.create') }}"
                     class="inline-flex items-center justify-center gap-2 px-4 py-2.5 
                           bg-gradient-to-r from-indigo-500 to-purple-500 
                           text-white font-medium rounded-lg
                           hover:shadow-lg hover:shadow-indigo-500/50 hover:scale-105
+                          focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-950
                           transition-all duration-200">
                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -71,46 +73,36 @@
         {{-- Filters & Search --}}
         <div class="mb-6 bg-white dark:bg-gray-900 rounded-lg p-4 border border-gray-100 dark:border-gray-800">
             <div class="flex flex-col sm:flex-row gap-3">
+                {{-- Search Input --}}
                 <div class="flex-1">
                     <div class="relative">
-                        <input type="text" x-model="searchTerm" placeholder="Cari menu..."
-                            class="w-full pl-10 pr-4 py-2 
-                                      border border-gray-300 dark:border-gray-700 
-                                      rounded-lg
-                                      bg-white dark:bg-gray-800
-                                      text-gray-900 dark:text-white
-                                      placeholder-gray-500 dark:placeholder-gray-400
-                                      focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                                      transition duration-150">
-                        <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="2">
+                        <x-text-input type="text" x-model="searchTerm" placeholder="Cari menu..."
+                            class="w-full pl-10" />
+                        <svg class="absolute left-3 top-2.5 w-5 h-5 text-gray-400 pointer-events-none" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
                 </div>
 
+                {{-- Status Filter --}}
                 <select x-model="statusFilter"
-                    class="px-4 py-2 
-                               border border-gray-300 dark:border-gray-700 
-                               rounded-lg
-                               bg-white dark:bg-gray-800
-                               text-gray-900 dark:text-white
-                               focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                               transition duration-150">
+                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
+                               focus:border-indigo-500 dark:focus:border-indigo-600 
+                               focus:ring-indigo-500 dark:focus:ring-indigo-600 
+                               rounded-md shadow-sm">
                     <option value="all">Semua Status</option>
                     <option value="active">Aktif</option>
                     <option value="inactive">Nonaktif</option>
                 </select>
 
+                {{-- Category Filter --}}
                 <select x-model="categoryFilter"
-                    class="px-4 py-2 
-                               border border-gray-300 dark:border-gray-700 
-                               rounded-lg
-                               bg-white dark:bg-gray-800
-                               text-gray-900 dark:text-white
-                               focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
-                               transition duration-150">
+                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
+                               focus:border-indigo-500 dark:focus:border-indigo-600 
+                               focus:ring-indigo-500 dark:focus:ring-indigo-600 
+                               rounded-md shadow-sm">
                     <option value="all">Semua Kategori</option>
                     @foreach ($menus->pluck('category')->unique() as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -217,6 +209,7 @@
                                                   text-blue-700 dark:text-blue-400 
                                                   rounded-lg text-xs font-medium
                                                   hover:bg-blue-200 dark:hover:bg-blue-900/50
+                                                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                                                   transition-colors duration-150">
                                             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"
                                                 stroke="currentColor" stroke-width="2">
@@ -236,6 +229,7 @@
                                                            text-red-700 dark:text-red-400 
                                                            rounded-lg text-xs font-medium
                                                            hover:bg-red-200 dark:hover:bg-red-900/50
+                                                           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
                                                            transition-colors duration-150">
                                                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24"
                                                     stroke="currentColor" stroke-width="2">
@@ -334,6 +328,7 @@
                                               text-blue-700 dark:text-blue-400 
                                               rounded-lg text-sm font-medium
                                               hover:bg-blue-200 dark:hover:bg-blue-900/50
+                                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                                               transition-colors duration-150">
                                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor" stroke-width="2">
@@ -353,6 +348,7 @@
                                                        text-red-700 dark:text-red-400 
                                                        rounded-lg text-sm font-medium
                                                        hover:bg-red-200 dark:hover:bg-red-900/50
+                                                       focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
                                                        transition-colors duration-150">
                                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                                                 stroke="currentColor" stroke-width="2">

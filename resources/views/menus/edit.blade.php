@@ -1,103 +1,301 @@
 <x-app-layout>
-    <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200">
-                Edit Menu
-            </h2>
+    @section('page-title', 'Edit Menu')
 
-            <a href="{{ route('menus.index') }}" class="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400">
-                Kembali
-            </a>
+    {{-- Page Content --}}
+    <div class="p-4 md:p-6 lg:p-8">
+
+        {{-- Header --}}
+        <div class="mb-6 md:mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                        Edit Menu
+                    </h1>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base">
+                        Perbarui informasi menu: {{ $menu->name }}
+                    </p>
+                </div>
+
+                <a href="{{ route('menus.index') }}"
+                    class="inline-flex items-center gap-2 px-4 py-2 
+                          bg-white dark:bg-gray-800 
+                          border border-gray-300 dark:border-gray-700
+                          text-gray-700 dark:text-gray-300 
+                          rounded-lg text-sm font-medium
+                          hover:bg-gray-50 dark:hover:bg-gray-700
+                          focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-950
+                          transition-colors duration-150">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Kembali
+                </a>
+            </div>
         </div>
-    </x-slot>
 
-    <div class="py-6">
-        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
-
-            <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm p-6">
+        {{-- Form Card dengan Alpine.js --}}
+        <div class="max-w-3xl mx-auto" x-data="{
+            imagePreview: null,
+            currentImage: '{{ $menu->image }}',
+        
+            previewImage(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    // Validasi ukuran file (2MB)
+                    if (file.size > 2097152) {
+                        alert('Ukuran file terlalu besar! Maksimal 2MB.');
+                        event.target.value = '';
+                        return;
+                    }
+        
+                    // Validasi tipe file
+                    if (!['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
+                        alert('Format file tidak didukung! Gunakan PNG, JPG, atau JPEG.');
+                        event.target.value = '';
+                        return;
+                    }
+        
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.imagePreview = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            },
+        
+            removePreview() {
+                this.imagePreview = null;
+                this.$refs.imageInput.value = '';
+            }
+        }">
+            <div
+                class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
 
                 <form action="{{ route('menus.update', $menu) }}" method="POST" enctype="multipart/form-data"
-                    class="space-y-6">
-
+                    class="p-6 space-y-6">
                     @csrf
                     @method('PUT')
 
-                    {{-- Nama --}}
-                    <div>
-                        <label class="block text-sm font-medium mb-1">
-                            Nama Menu
-                        </label>
-                        <input type="text" name="name" value="{{ old('name', $menu->name) }}"
-                            class="w-full rounded-md border-gray-300 dark:bg-gray-800 dark:border-gray-700" required>
+                    {{-- Preview Image --}}
+                    <div class="flex justify-center pb-4 border-b border-gray-100 dark:border-gray-800">
+                        <div class="relative group">
+                            {{-- Show preview baru jika ada, jika tidak show gambar lama --}}
+                            <template x-if="imagePreview">
+                                <img :src="imagePreview" alt="Preview"
+                                    class="w-40 h-40 rounded-xl object-cover ring-2 ring-indigo-500">
+                            </template>
+
+                            <template x-if="!imagePreview && currentImage">
+                                <img :src="'/storage/' + currentImage" alt="{{ $menu->name }}"
+                                    class="w-40 h-40 rounded-xl object-cover ring-2 ring-gray-200 dark:ring-gray-700">
+                            </template>
+
+                            <template x-if="!imagePreview && !currentImage">
+                                <div
+                                    class="w-40 h-40 rounded-xl bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-gray-400 dark:text-gray-600" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                            </template>
+
+                            <div
+                                class="absolute inset-0 bg-black/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="text-white text-sm font-medium"
+                                    x-text="imagePreview ? 'Preview Baru' : 'Gambar Saat Ini'"></span>
+                            </div>
+                        </div>
                     </div>
 
-                    {{-- Kategori --}}
+                    {{-- Nama Menu --}}
                     <div>
-                        <label class="block text-sm font-medium mb-1">
-                            Kategori
-                        </label>
-                        <select name="category_id"
-                            class="w-full rounded-md border-gray-300 dark:bg-gray-800 dark:border-gray-700" required>
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" @selected($menu->category_id == $category->id)>
-                                    {{ $category->name }}
-                                </option>
-                            @endforeach
-                        </select>
+                        <x-input-label for="name" value="Nama Menu *" />
+                        <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
+                            :value="old('name', $menu->name)" required autofocus placeholder="Contoh: Nasi Goreng Spesial" />
+                        <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                    </div>
+
+                    {{-- Kategori & Status (Grid 2 kolom di desktop) --}}
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        {{-- Kategori --}}
+                        <div>
+                            <x-input-label for="category_id" value="Kategori *" />
+                            <select id="category_id" name="category_id"
+                                class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
+                                           focus:border-indigo-500 dark:focus:border-indigo-600 
+                                           focus:ring-indigo-500 dark:focus:ring-indigo-600 
+                                           rounded-md shadow-sm"
+                                required>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" @selected(old('category_id', $menu->category_id) == $category->id)>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                        </div>
+
+                        {{-- Status --}}
+                        <div>
+                            <x-input-label for="is_active" value="Status Menu" />
+                            <div class="mt-3 flex items-center gap-3">
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="is_active" name="is_active" value="1"
+                                        class="sr-only peer" @checked(old('is_active', $menu->is_active))>
+                                    <div
+                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600">
+                                    </div>
+                                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                        Menu Aktif
+                                    </span>
+                                </label>
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                                Menu yang aktif akan ditampilkan kepada pelanggan
+                            </p>
+                        </div>
+
                     </div>
 
                     {{-- Harga --}}
                     <div>
-                        <label class="block text-sm font-medium mb-1">
-                            Harga
-                        </label>
-                        <input type="number" name="price" value="{{ $menu->price }}" min="0"
-                            class="w-full rounded-md border-gray-300 dark:bg-gray-800 dark:border-gray-700" required>
+                        <x-input-label for="price" value="Harga (Rp) *" />
+                        <div class="relative mt-1">
+                            <span
+                                class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 dark:text-gray-400 pointer-events-none">
+                                Rp
+                            </span>
+                            <x-text-input id="price" name="price" type="number" class="block w-full pl-12"
+                                :value="old('price', $menu->price)" min="0" step="1000" required placeholder="15000" />
+                        </div>
+                        <x-input-error class="mt-2" :messages="$errors->get('price')" />
+                        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                            Masukkan harga dalam rupiah (tanpa titik atau koma)
+                        </p>
                     </div>
 
                     {{-- Deskripsi --}}
                     <div>
-                        <label class="block text-sm font-medium mb-1">
-                            Deskripsi
-                        </label>
-                        <textarea name="description" rows="3"
-                            class="w-full rounded-md border-gray-300 dark:bg-gray-800 dark:border-gray-700">{{ $menu->description }}</textarea>
+                        <x-input-label for="description" value="Deskripsi" />
+                        <textarea id="description" name="description" rows="4"
+                            class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
+                                   focus:border-indigo-500 dark:focus:border-indigo-600 
+                                   focus:ring-indigo-500 dark:focus:ring-indigo-600 
+                                   rounded-md shadow-sm"
+                            placeholder="Jelaskan menu ini, bahan-bahan, atau keunikannya...">{{ old('description', $menu->description) }}</textarea>
+                        <x-input-error class="mt-2" :messages="$errors->get('description')" />
+                        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                            Deskripsi membantu pelanggan memahami menu lebih baik
+                        </p>
                     </div>
 
-                    {{-- Gambar --}}
+                    {{-- Upload Gambar --}}
                     <div>
-                        <label class="block text-sm font-medium mb-1">
-                            Gambar
-                        </label>
-                        <input type="file" name="image" class="text-sm">
+                        <x-input-label for="image" value="Gambar Menu" />
+                        <div class="mt-1">
+                            <label for="image"
+                                class="flex flex-col items-center justify-center w-full h-32 
+                                          border-2 border-gray-300 dark:border-gray-700 border-dashed rounded-lg 
+                                          cursor-pointer bg-gray-50 dark:bg-gray-800 
+                                          hover:bg-gray-100 dark:hover:bg-gray-700/50
+                                          transition-colors duration-150">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <svg class="w-8 h-8 mb-2 text-gray-400" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                    <p class="mb-1 text-sm text-gray-500 dark:text-gray-400">
+                                        <span class="font-semibold">Klik untuk upload</span> atau drag & drop
+                                    </p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                                        PNG, JPG atau JPEG (MAX. 2MB)
+                                    </p>
+                                </div>
+                                <input id="image" name="image" type="file" class="hidden"
+                                    accept="image/png,image/jpeg,image/jpg" x-ref="imageInput"
+                                    @change="previewImage($event)" />
+                            </label>
+                        </div>
+                        <x-input-error class="mt-2" :messages="$errors->get('image')" />
 
-                        @if ($menu->image)
-                            <img src="{{ asset('storage/' . $menu->image) }}" class="h-20 mt-2 rounded border">
-                        @endif
+                        {{-- Button Remove Preview (muncul jika ada preview) --}}
+                        <div x-show="imagePreview" x-cloak class="mt-4">
+                            <button type="button" @click="removePreview()"
+                                class="inline-flex items-center gap-2 px-3 py-2 
+                                           bg-red-100 dark:bg-red-900/30 
+                                           text-red-700 dark:text-red-400 
+                                           rounded-lg text-sm font-medium
+                                           hover:bg-red-200 dark:hover:bg-red-900/50
+                                           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
+                                           transition-colors duration-150">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                                Hapus Preview
+                            </button>
+                        </div>
                     </div>
 
-                    {{-- Status --}}
-                    <div class="flex items-center gap-2">
-                        <input type="checkbox" name="is_active" value="1" class="rounded"
-                            @checked($menu->is_active)>
-                        <span class="text-sm">Menu aktif</span>
-                    </div>
-
-                    {{-- Action --}}
-                    <div class="flex justify-end gap-3 pt-4 border-t">
-                        <a href="{{ route('menus.index') }}" class="text-sm text-gray-600 hover:underline">
+                    {{-- Form Actions --}}
+                    <div
+                        class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 pt-6 border-t border-gray-100 dark:border-gray-800">
+                        <a href="{{ route('menus.index') }}"
+                            class="inline-flex items-center justify-center px-4 py-2 
+                                  bg-white dark:bg-gray-800 
+                                  border border-gray-300 dark:border-gray-700
+                                  text-gray-700 dark:text-gray-300 
+                                  rounded-lg text-sm font-medium
+                                  hover:bg-gray-50 dark:hover:bg-gray-700
+                                  focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2
+                                  transition-colors duration-150">
                             Batal
                         </a>
 
                         <button type="submit"
-                            class="px-4 py-2 bg-indigo-600 text-white rounded-md text-sm hover:bg-indigo-700">
-                            Update
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 
+                                       bg-gradient-to-r from-indigo-500 to-purple-500 
+                                       text-white font-medium rounded-lg
+                                       hover:shadow-lg hover:shadow-indigo-500/50 hover:scale-105
+                                       focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-950
+                                       transition-all duration-200">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Update Menu
                         </button>
                     </div>
 
                 </form>
+            </div>
 
+            {{-- Info Card --}}
+            <div
+                class="mt-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+                <div class="flex gap-3">
+                    <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div class="text-sm text-blue-800 dark:text-blue-300">
+                        <p class="font-medium mb-1">Tips Edit Menu:</p>
+                        <ul class="list-disc list-inside space-y-1 text-xs">
+                            <li>Pastikan nama menu jelas dan mudah dipahami</li>
+                            <li>Upload gambar dengan resolusi tinggi untuk hasil terbaik</li>
+                            <li>Deskripsi yang detail membantu pelanggan dalam memilih</li>
+                            <li>Nonaktifkan menu jika stok sedang habis</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </x-app-layout>
