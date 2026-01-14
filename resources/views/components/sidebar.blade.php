@@ -8,11 +8,11 @@
            bg-white dark:bg-gray-900
            border-r border-gray-200 dark:border-gray-800
            transform transition-transform duration-300 ease-in-out
-           lg:translate-x-0 lg:static lg:inset-auto
+           lg:translate-x-0
            flex flex-col">
 
     {{-- Header --}}
-    <div class="h-16 flex items-center justify-between px-6 border-b border-gray-200 dark:border-gray-800">
+    <div class="h-16 flex items-center justify-between px-6 border-b border-gray-200 dark:border-gray-800 flex-shrink-0">
         <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
             <x-application-logo class="h-8 w-auto text-indigo-600 dark:text-indigo-400" />
             <span class="text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -79,7 +79,7 @@
     </nav>
 
     {{-- Footer --}}
-    <div class="p-4 border-t border-gray-200 dark:border-gray-800">
+    <div class="p-4 border-t border-gray-200 dark:border-gray-800 flex-shrink-0">
         <div class="flex items-center gap-3 px-3 py-2 bg-gray-50 dark:bg-gray-800 rounded-lg">
             <div
                 class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500
