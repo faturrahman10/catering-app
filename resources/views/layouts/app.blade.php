@@ -37,32 +37,29 @@
     })"
         @keydown.escape.window="sidebarOpen = false">
 
-        <div class="flex min-h-screen">
+        {{-- Sidebar --}}
+        @include('components.sidebar')
 
-            {{-- Sidebar --}}
-            @include('components.sidebar')
+        {{-- Main Content Area dengan margin-left --}}
+        <div class="lg:ml-64 flex flex-col min-h-screen">
 
-            {{-- Main Content --}}
-            <div class="flex-1 flex flex-col min-w-0">
+            {{-- Top Navigation --}}
+            @include('layouts.navigation')
 
-                {{-- Top Navigation --}}
-                @include('layouts.navigation')
+            {{-- Page Header --}}
+            @isset($header)
+                <header class="bg-white dark:bg-gray-800 shadow-sm">
+                    <div class="px-4 py-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
 
-                {{-- Page Header --}}
-                @isset($header)
-                    <header class="bg-white dark:bg-gray-800 shadow-sm">
-                        <div class="px-4 py-4 sm:px-6 lg:px-8">
-                            {{ $header }}
-                        </div>
-                    </header>
-                @endisset
+            {{-- Page Content --}}
+            <main class="flex-1">
+                {{ $slot }}
+            </main>
 
-                {{-- Page Content --}}
-                <main class="flex-1">
-                    {{ $slot }}
-                </main>
-
-            </div>
         </div>
     </div>
 </body>
