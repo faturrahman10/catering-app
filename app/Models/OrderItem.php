@@ -11,10 +11,10 @@ class OrderItem extends Model
     protected $fillable = ['order_id', 'menu_id', 'qty', 'price', 'subtotal'];
 
     public function order(){
-        return $this->belongTo(Order::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function menu(){
-        return $this->belongTo(Menu::class);
+        return $this->belongsTo(Menu::class);
     }
 }
