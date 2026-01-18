@@ -17,13 +17,7 @@
                 </div>
 
                 <a href="{{ route('orders.index') }}"
-                    class="inline-flex items-center gap-2 px-4 py-2 
-                          bg-white dark:bg-gray-800 
-                          border border-gray-300 dark:border-gray-700
-                          text-gray-700 dark:text-gray-300 
-                          rounded-lg text-sm font-medium
-                          hover:bg-gray-50 dark:hover:bg-gray-700
-                          transition-colors duration-150">
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
@@ -33,95 +27,7 @@
         </div>
 
         {{-- Form Card dengan Alpine.js --}}
-        <div class="max-w-5xl mx-auto" x-data="{
-            // Customer Search
-            customerSearch: '',
-            customerSearchOpen: false,
-            selectedCustomer: null,
-            customers: [],
-            isSearching: false,
-        
-            async searchCustomers() {
-                if (this.customerSearch.length < 2) {
-                    this.customers = [];
-                    this.customerSearchOpen = false;
-                    return;
-                }
-        
-                this.isSearching = true;
-                this.customerSearchOpen = true;
-        
-                try {
-                    const response = await fetch(`/api/customers/search?q=${encodeURIComponent(this.customerSearch)}`);
-                    const data = await response.json();
-                    this.customers = data;
-                } catch (error) {
-                    console.error('Error searching customers:', error);
-                    this.customers = [];
-                } finally {
-                    this.isSearching = false;
-                }
-            },
-        
-            selectCustomer(customer) {
-                this.selectedCustomer = customer;
-                this.customerSearch = customer.name;
-                this.customerSearchOpen = false;
-            },
-        
-            clearCustomer() {
-                this.selectedCustomer = null;
-                this.customerSearch = '';
-                this.customers = [];
-            },
-        
-            // Order Items
-            selectedItems: [],
-            totalPrice: 0,
-            menus: @json($menus),
-        
-            addItem(menuId) {
-                const menu = this.menus.find(m => m.id === parseInt(menuId));
-                if (!menu) return;
-        
-                const existing = this.selectedItems.find(item => item.menu_id === menu.id);
-                if (existing) {
-                    existing.qty++;
-                } else {
-                    this.selectedItems.push({
-                        menu_id: menu.id,
-                        name: menu.name,
-                        price: menu.price,
-                        qty: 1
-                    });
-                }
-                this.calculateTotal();
-            },
-        
-            removeItem(index) {
-                this.selectedItems.splice(index, 1);
-                this.calculateTotal();
-            },
-        
-            updateQty(index, qty) {
-                if (qty < 1) {
-                    this.removeItem(index);
-                } else {
-                    this.selectedItems[index].qty = qty;
-                    this.calculateTotal();
-                }
-            },
-        
-            calculateTotal() {
-                this.totalPrice = this.selectedItems.reduce((sum, item) => {
-                    return sum + (item.price * item.qty);
-                }, 0);
-            },
-        
-            getSubtotal(item) {
-                return item.price * item.qty;
-            }
-        }" @click.away="customerSearchOpen = false">
+        <div class="max-w-5xl mx-auto" x-data="orderForm()" @click.away="customerSearchOpen = false">
             <div
                 class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
 
@@ -152,10 +58,7 @@
                                         @input.debounce.300ms="searchCustomers()"
                                         @focus="customerSearch.length >= 2 && searchCustomers()"
                                         placeholder="Ketik nama customer..."
-                                        class="block w-full pl-10 pr-10 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
-                                               focus:border-indigo-500 dark:focus:border-indigo-600 
-                                               focus:ring-indigo-500 dark:focus:ring-indigo-600 
-                                               rounded-md shadow-sm"
+                                        class="block w-full pl-10 pr-10 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                                         autocomplete="off" />
 
                                     {{-- Search Icon --}}
@@ -248,11 +151,10 @@
                                 </div>
 
                                 {{-- Hidden Input for Form Submission --}}
-                                <input type="hidden" name="customer_id" x-model="selectedCustomer?.id" required>
+                                <input type="hidden" name="customer_id" :value="selectedCustomer?.id || ''" required>
                             </div>
                             <x-input-error class="mt-2" :messages="$errors->get('customer_id')" />
-                            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                                Ketik nama customer untuk mencari
+                            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Ketik nama customer untuk mencari
                             </p>
                         </div>
 
@@ -270,10 +172,7 @@
                     <div>
                         <x-input-label for="notes" value="Catatan Pesanan" />
                         <textarea id="notes" name="notes" rows="3"
-                            class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
-                                   focus:border-indigo-500 dark:focus:border-indigo-600 
-                                   focus:ring-indigo-500 dark:focus:ring-indigo-600 
-                                   rounded-md shadow-sm"
+                            class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                             placeholder="Tambahkan catatan khusus untuk pesanan ini...">{{ old('notes') }}</textarea>
                         <x-input-error class="mt-2" :messages="$errors->get('notes')" />
                     </div>
@@ -284,19 +183,14 @@
                     {{-- Menu Items Section --}}
                     <div>
                         <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                Pilih Menu
-                            </h3>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pilih Menu</h3>
                         </div>
 
                         {{-- Add Menu Selector --}}
                         <div class="mb-6 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <select id="menu_selector"
-                                    class="flex-1 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
-                                               focus:border-indigo-500 dark:focus:border-indigo-600 
-                                               focus:ring-indigo-500 dark:focus:ring-indigo-600 
-                                               rounded-md shadow-sm">
+                                    class="flex-1 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
                                     <option value="">-- Pilih Menu untuk Ditambahkan --</option>
                                     @foreach ($menus as $menu)
                                         <option value="{{ $menu->id }}">
@@ -305,12 +199,8 @@
                                     @endforeach
                                 </select>
                                 <button type="button"
-                                    @click="addItem($el.parentElement.querySelector('#menu_selector').value); $el.parentElement.querySelector('#menu_selector').value = ''"
-                                    class="inline-flex items-center gap-2 px-4 py-2 
-                                          bg-indigo-600 dark:bg-indigo-500 
-                                          text-white font-medium rounded-lg
-                                          hover:bg-indigo-700 dark:hover:bg-indigo-600
-                                          transition-colors duration-150">
+                                    @click="addItem(document.getElementById('menu_selector').value); document.getElementById('menu_selector').value = ''"
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 dark:bg-indigo-500 text-white font-medium rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors duration-150">
                                     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                         stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -354,10 +244,7 @@
                                                 </button>
                                                 <input type="number" x-model.number="item.qty"
                                                     @change="calculateTotal()"
-                                                    class="w-16 text-center border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
-                                                           focus:border-indigo-500 dark:focus:border-indigo-600 
-                                                           focus:ring-indigo-500 dark:focus:ring-indigo-600 
-                                                           rounded-md shadow-sm text-sm"
+                                                    class="w-16 text-center border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm text-sm"
                                                     min="1">
                                                 <button type="button" @click="updateQty(index, item.qty + 1)"
                                                     class="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
@@ -425,23 +312,12 @@
                     <div
                         class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 pt-6 border-t border-gray-100 dark:border-gray-800">
                         <a href="{{ route('orders.index') }}"
-                            class="inline-flex items-center justify-center px-4 py-2 
-                                  bg-white dark:bg-gray-800 
-                                  border border-gray-300 dark:border-gray-700
-                                  text-gray-700 dark:text-gray-300 
-                                  rounded-lg text-sm font-medium
-                                  hover:bg-gray-50 dark:hover:bg-gray-700
-                                  transition-colors duration-150">
+                            class="inline-flex items-center justify-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
                             Batal
                         </a>
 
                         <button type="submit" x-bind:disabled="!selectedCustomer || selectedItems.length === 0"
-                            class="inline-flex items-center justify-center gap-2 px-4 py-2 
-                                       bg-gradient-to-r from-indigo-500 to-purple-500 
-                                       text-white font-medium rounded-lg
-                                       hover:shadow-lg hover:shadow-indigo-500/50 hover:scale-105
-                                       disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none
-                                       transition-all duration-200">
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-indigo-500/50 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none transition-all duration-200">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -478,4 +354,99 @@
         </div>
 
     </div>
+
+    {{-- Alpine.js Component --}}
+    <script>
+        function orderForm() {
+            return {
+                // Customer Search
+                customerSearch: '',
+                customerSearchOpen: false,
+                selectedCustomer: null,
+                customers: [],
+                isSearching: false,
+
+                async searchCustomers() {
+                    if (this.customerSearch.length < 2) {
+                        this.customers = [];
+                        this.customerSearchOpen = false;
+                        return;
+                    }
+
+                    this.isSearching = true;
+                    this.customerSearchOpen = true;
+
+                    try {
+                        const response = await fetch(`/customers/search?q=${encodeURIComponent(this.customerSearch)}`);
+                        const data = await response.json();
+                        this.customers = data;
+                    } catch (error) {
+                        console.error('Error searching customers:', error);
+                        this.customers = [];
+                    } finally {
+                        this.isSearching = false;
+                    }
+                },
+
+                selectCustomer(customer) {
+                    this.selectedCustomer = customer;
+                    this.customerSearch = customer.name;
+                    this.customerSearchOpen = false;
+                },
+
+                clearCustomer() {
+                    this.selectedCustomer = null;
+                    this.customerSearch = '';
+                    this.customers = [];
+                },
+
+                // Order Items
+                selectedItems: [],
+                totalPrice: 0,
+                menus: @json($menus),
+
+                addItem(menuId) {
+                    const menu = this.menus.find(m => m.id === parseInt(menuId));
+                    if (!menu) return;
+
+                    const existing = this.selectedItems.find(item => item.menu_id === menu.id);
+                    if (existing) {
+                        existing.qty++;
+                    } else {
+                        this.selectedItems.push({
+                            menu_id: menu.id,
+                            name: menu.name,
+                            price: menu.price,
+                            qty: 1
+                        });
+                    }
+                    this.calculateTotal();
+                },
+
+                removeItem(index) {
+                    this.selectedItems.splice(index, 1);
+                    this.calculateTotal();
+                },
+
+                updateQty(index, qty) {
+                    if (qty < 1) {
+                        this.removeItem(index);
+                    } else {
+                        this.selectedItems[index].qty = qty;
+                        this.calculateTotal();
+                    }
+                },
+
+                calculateTotal() {
+                    this.totalPrice = this.selectedItems.reduce((sum, item) => {
+                        return sum + (item.price * item.qty);
+                    }, 0);
+                },
+
+                getSubtotal(item) {
+                    return item.price * item.qty;
+                }
+            }
+        }
+    </script>
 </x-app-layout>
