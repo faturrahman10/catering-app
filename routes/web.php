@@ -23,6 +23,7 @@ Route::middleware(['auth', 'admin', 'verified'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('orders', OrderController::class);
     Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+    Route::get('/customers/search', [CustomerController::class, 'search'])->name('customers.search');
     Route::resource('customers', CustomerController::class);
 });
 
