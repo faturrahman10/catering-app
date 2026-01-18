@@ -14,6 +14,23 @@ class CustomerController extends Controller
         return view('customers.index', compact('customers'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->get('q', '');
+
+        if (strlen($query) < 2) {
+            return response()->json([]);
+        }
+
+        $customers = Customer::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('phone', 'LIKE', "%{$query}%")
+            ->orderBy('name')
+            ->limit(10)
+            ->get(['id', 'name', 'phone', 'address']);
+
+        return response()->json($customers);
+    }
+
     public function create()
     {
         return view('customers.create');
