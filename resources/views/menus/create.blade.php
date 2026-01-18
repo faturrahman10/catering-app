@@ -17,14 +17,7 @@
                 </div>
 
                 <a href="{{ route('menus.index') }}"
-                    class="inline-flex items-center gap-2 px-4 py-2 
-                          bg-white dark:bg-gray-800 
-                          border border-gray-300 dark:border-gray-700
-                          text-gray-700 dark:text-gray-300 
-                          rounded-lg text-sm font-medium
-                          hover:bg-gray-50 dark:hover:bg-gray-700
-                          focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-950
-                          transition-colors duration-150">
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
@@ -34,40 +27,7 @@
         </div>
 
         {{-- Form Card dengan Alpine.js --}}
-        <div class="max-w-3xl mx-auto" x-data="{
-            imagePreview: null,
-            isActive: true,
-        
-            previewImage(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    // Validasi ukuran file (2MB)
-                    if (file.size > 2097152) {
-                        alert('Ukuran file terlalu besar! Maksimal 2MB.');
-                        event.target.value = '';
-                        return;
-                    }
-        
-                    // Validasi tipe file
-                    if (!['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
-                        alert('Format file tidak didukung! Gunakan PNG, JPG, atau JPEG.');
-                        event.target.value = '';
-                        return;
-                    }
-        
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        this.imagePreview = e.target.result;
-                    }
-                    reader.readAsDataURL(file);
-                }
-            },
-        
-            removePreview() {
-                this.imagePreview = null;
-                this.$refs.imageInput.value = '';
-            }
-        }">
+        <div class="max-w-3xl mx-auto" x-data="menuForm()">
             <div
                 class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden">
 
@@ -75,28 +35,13 @@
                     class="p-6 space-y-6">
                     @csrf
 
-                    {{-- Preview Image --}}
-                    <div x-show="imagePreview" x-cloak
-                        class="flex justify-center pb-4 border-b border-gray-100 dark:border-gray-800">
-                        <div class="relative group">
-                            <img :src="imagePreview" alt="Preview"
-                                class="w-40 h-40 rounded-xl object-cover ring-2 ring-indigo-500">
-                            <div
-                                class="absolute inset-0 bg-black/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <span class="text-white text-sm font-medium">Preview</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Empty State jika belum ada preview --}}
-                    <div x-show="!imagePreview"
-                        class="flex justify-center pb-4 border-b border-gray-100 dark:border-gray-800">
+                    {{-- Icon Dekoratif (Konsisten dengan form lain) --}}
+                    <div class="flex justify-center pb-4 border-b border-gray-100 dark:border-gray-800">
                         <div
-                            class="w-40 h-40 rounded-xl bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-gray-400 dark:text-gray-600" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                            class="w-40 h-40 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                            <svg class="w-20 h-20 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
                         </div>
                     </div>
@@ -116,10 +61,7 @@
                         <div>
                             <x-input-label for="category_id" value="Kategori *" />
                             <select id="category_id" name="category_id"
-                                class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
-                                           focus:border-indigo-500 dark:focus:border-indigo-600 
-                                           focus:ring-indigo-500 dark:focus:ring-indigo-600 
-                                           rounded-md shadow-sm"
+                                class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                                 required>
                                 <option value="">-- Pilih Kategori --</option>
                                 @foreach ($categories as $category)
@@ -174,10 +116,7 @@
                     <div>
                         <x-input-label for="description" value="Deskripsi" />
                         <textarea id="description" name="description" rows="4"
-                            class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
-                                   focus:border-indigo-500 dark:focus:border-indigo-600 
-                                   focus:ring-indigo-500 dark:focus:ring-indigo-600 
-                                   rounded-md shadow-sm"
+                            class="mt-1 block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                             placeholder="Jelaskan menu ini, bahan-bahan, atau keunikannya...">{{ old('description') }}</textarea>
                         <x-input-error class="mt-2" :messages="$errors->get('description')" />
                         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
@@ -185,54 +124,66 @@
                         </p>
                     </div>
 
-                    {{-- Upload Gambar --}}
+                    {{-- Upload Gambar dengan Preview Langsung --}}
                     <div>
                         <x-input-label for="image" value="Gambar Menu" />
+
+                        {{-- Preview atau Upload Area --}}
                         <div class="mt-1">
-                            <label for="image"
-                                class="flex flex-col items-center justify-center w-full h-32 
-                                          border-2 border-gray-300 dark:border-gray-700 border-dashed rounded-lg 
-                                          cursor-pointer bg-gray-50 dark:bg-gray-800 
-                                          hover:bg-gray-100 dark:hover:bg-gray-700/50
-                                          transition-colors duration-150">
+                            {{-- Jika sudah ada preview, tampilkan gambar --}}
+                            <div x-show="imagePreview" x-cloak class="relative">
+                                <img :src="imagePreview" alt="Preview"
+                                    class="w-full h-64 object-cover rounded-lg border-2 border-indigo-500">
+
+                                {{-- Overlay dengan tombol aksi --}}
+                                <div
+                                    class="absolute inset-0 bg-black/50 rounded-lg opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                    <button type="button" @click="$refs.imageInput.click()"
+                                        class="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-900 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                                        </svg>
+                                        Ganti
+                                    </button>
+                                    <button type="button" @click="removePreview()"
+                                        class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-medium hover:bg-red-700 transition-colors">
+                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                        Hapus
+                                    </button>
+                                </div>
+                            </div>
+
+                            {{-- Jika belum ada preview, tampilkan upload area --}}
+                            <label x-show="!imagePreview" for="image"
+                                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 dark:border-gray-700 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors duration-150">
                                 <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <svg class="w-8 h-8 mb-2 text-gray-400" fill="none" viewBox="0 0 24 24"
+                                    <svg class="w-12 h-12 mb-4 text-gray-400" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                                     </svg>
-                                    <p class="mb-1 text-sm text-gray-500 dark:text-gray-400">
+                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                                         <span class="font-semibold">Klik untuk upload</span> atau drag & drop
                                     </p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">
                                         PNG, JPG atau JPEG (MAX. 2MB)
                                     </p>
                                 </div>
-                                <input id="image" name="image" type="file" class="hidden"
-                                    accept="image/png,image/jpeg,image/jpg" x-ref="imageInput"
-                                    @change="previewImage($event)" />
                             </label>
-                        </div>
-                        <x-input-error class="mt-2" :messages="$errors->get('image')" />
 
-                        {{-- Button Remove Preview (muncul jika ada preview) --}}
-                        <div x-show="imagePreview" x-cloak class="mt-4">
-                            <button type="button" @click="removePreview()"
-                                class="inline-flex items-center gap-2 px-3 py-2 
-                                           bg-red-100 dark:bg-red-900/30 
-                                           text-red-700 dark:text-red-400 
-                                           rounded-lg text-sm font-medium
-                                           hover:bg-red-200 dark:hover:bg-red-900/50
-                                           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
-                                           transition-colors duration-150">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                                Hapus Preview
-                            </button>
+                            {{-- Hidden Input --}}
+                            <input id="image" name="image" type="file" class="hidden"
+                                accept="image/png,image/jpeg,image/jpg" x-ref="imageInput"
+                                @change="previewImage($event)" />
                         </div>
+
+                        <x-input-error class="mt-2" :messages="$errors->get('image')" />
 
                         <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
                             💡 Tips: Gambar yang menarik meningkatkan minat pelanggan hingga 60%
@@ -243,24 +194,12 @@
                     <div
                         class="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 pt-6 border-t border-gray-100 dark:border-gray-800">
                         <a href="{{ route('menus.index') }}"
-                            class="inline-flex items-center justify-center px-4 py-2 
-                                  bg-white dark:bg-gray-800 
-                                  border border-gray-300 dark:border-gray-700
-                                  text-gray-700 dark:text-gray-300 
-                                  rounded-lg text-sm font-medium
-                                  hover:bg-gray-50 dark:hover:bg-gray-700
-                                  focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2
-                                  transition-colors duration-150">
+                            class="inline-flex items-center justify-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150">
                             Batal
                         </a>
 
                         <button type="submit"
-                            class="inline-flex items-center justify-center gap-2 px-4 py-2 
-                                       bg-gradient-to-r from-indigo-500 to-purple-500 
-                                       text-white font-medium rounded-lg
-                                       hover:shadow-lg hover:shadow-indigo-500/50 hover:scale-105
-                                       focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-950
-                                       transition-all duration-200">
+                            class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-200">
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                 stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -294,7 +233,7 @@
                 </div>
             </div>
 
-            {{-- Quick Stats (Optional - motivasi untuk user) --}}
+            {{-- Quick Stats --}}
             <div class="mt-4 grid grid-cols-3 gap-3">
                 <div
                     class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg p-3 text-center">
@@ -318,4 +257,45 @@
         </div>
 
     </div>
+
+    {{-- Alpine.js Component --}}
+    <script>
+        function menuForm() {
+            return {
+                imagePreview: null,
+                isActive: true,
+
+                previewImage(event) {
+                    const file = event.target.files[0];
+                    if (!file) return;
+
+                    // Validasi ukuran file (2MB)
+                    if (file.size > 2097152) {
+                        alert('Ukuran file terlalu besar! Maksimal 2MB.');
+                        event.target.value = '';
+                        return;
+                    }
+
+                    // Validasi tipe file
+                    if (!['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
+                        alert('Format file tidak didukung! Gunakan PNG, JPG, atau JPEG.');
+                        event.target.value = '';
+                        return;
+                    }
+
+                    // Tampilkan preview
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.imagePreview = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
+                },
+
+                removePreview() {
+                    this.imagePreview = null;
+                    this.$refs.imageInput.value = '';
+                }
+            }
+        }
+    </script>
 </x-app-layout>
