@@ -191,10 +191,12 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-center hidden sm:table-cell">
                                     <span
                                         class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium
-                                        {{ $order->status === 'completed' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400' : '' }}
-                                        {{ $order->status === 'pending' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400' : '' }}
-                                        {{ $order->status === 'processing' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400' : '' }}
-                                        {{ $order->status === 'cancelled' ? 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400' : '' }}">
+                                            {{ $order->status === 'pending' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400' : '' }}
+                                            {{ $order->status === 'confirmed' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400' : '' }}
+                                            {{ $order->status === 'cooking' ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400' : '' }}
+                                            {{ $order->status === 'ready' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400' : '' }}
+                                            {{ $order->status === 'delivered' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400' : '' }}
+                                            {{ $order->status === 'canceled' ? 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400' : '' }}">
                                         {{ ucfirst($order->status) }}
                                     </span>
                                 </td>
