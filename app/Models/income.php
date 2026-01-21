@@ -7,11 +7,12 @@ use App\Models\User;
 
 class Income extends Model
 {
-    protected $fillable = ['source', 'description', 'amount', 'income_date', 'proof_image', 'notes', 'created_by'];
+    protected $fillable = ['items', 'total_amount', 'income_date', 'proof_image', 'notes', 'created_by'];
 
     protected $casts = [
         'income_date' => 'date',
-        'amount' => 'integer',
+        'total_amount' => 'integer',
+        'items' => 'array', // Cast JSON ke array
     ];
 
     public function creator()
