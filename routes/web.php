@@ -52,4 +52,52 @@ Route::middleware(['auth', 'admin', 'verified'])->group(function () {
     ]);
 });
 
+// Reports Routes
+Route::middleware(['auth', 'admin', 'verified'])
+    ->prefix('reports')
+    ->name('reports.')
+    ->group(function () {
+        // Dashboard
+        Route::get('/', [App\Http\Controllers\Reports\ReportController::class, 'index'])->name('index');
+
+        // Orders Reports
+        Route::get('/orders', [App\Http\Controllers\Reports\ReportController::class, 'orders'])->name('orders');
+        Route::get('/orders/excel', [App\Http\Controllers\Reports\ReportController::class, 'ordersExcel'])->name('orders.excel');
+        Route::get('/orders/pdf', [App\Http\Controllers\Reports\ReportController::class, 'ordersPdf'])->name('orders.pdf');
+
+        Route::get('/sales-by-menu', [App\Http\Controllers\Reports\ReportController::class, 'salesByMenu'])->name('sales-by-menu');
+        Route::get('/sales-by-menu/excel', [App\Http\Controllers\Reports\ReportController::class, 'salesByMenuExcel'])->name('sales-by-menu.excel');
+        Route::get('/sales-by-menu/pdf', [App\Http\Controllers\Reports\ReportController::class, 'salesByMenuPdf'])->name('sales-by-menu.pdf');
+
+        Route::get('/sales-by-customer', [App\Http\Controllers\Reports\ReportController::class, 'salesByCustomer'])->name('sales-by-customer');
+        Route::get('/sales-by-customer/excel', [App\Http\Controllers\Reports\ReportController::class, 'salesByCustomerExcel'])->name('sales-by-customer.excel');
+        Route::get('/sales-by-customer/pdf', [App\Http\Controllers\Reports\ReportController::class, 'salesByCustomerPdf'])->name('sales-by-customer.pdf');
+
+        // Finance Reports
+        Route::get('/profit-loss', [App\Http\Controllers\Reports\ReportController::class, 'profitLoss'])->name('profit-loss');
+        Route::get('/profit-loss/excel', [App\Http\Controllers\Reports\ReportController::class, 'profitLossExcel'])->name('profit-loss.excel');
+        Route::get('/profit-loss/pdf', [App\Http\Controllers\Reports\ReportController::class, 'profitLossPdf'])->name('profit-loss.pdf');
+
+        Route::get('/expenses', [App\Http\Controllers\Reports\ReportController::class, 'expenses'])->name('expenses');
+        Route::get('/expenses/excel', [App\Http\Controllers\Reports\ReportController::class, 'expensesExcel'])->name('expenses.excel');
+        Route::get('/expenses/pdf', [App\Http\Controllers\Reports\ReportController::class, 'expensesPdf'])->name('expenses.pdf');
+
+        Route::get('/incomes', [App\Http\Controllers\Reports\ReportController::class, 'incomes'])->name('incomes');
+        Route::get('/incomes/excel', [App\Http\Controllers\Reports\ReportController::class, 'incomesExcel'])->name('incomes.excel');
+        Route::get('/incomes/pdf', [App\Http\Controllers\Reports\ReportController::class, 'incomesPdf'])->name('incomes.pdf');
+
+        // Master Data Reports
+        Route::get('/menus', [App\Http\Controllers\Reports\ReportController::class, 'menus'])->name('menus');
+        Route::get('/menus/excel', [App\Http\Controllers\Reports\ReportController::class, 'menusExcel'])->name('menus.excel');
+        Route::get('/menus/pdf', [App\Http\Controllers\Reports\ReportController::class, 'menusPdf'])->name('menus.pdf');
+
+        Route::get('/customers', [App\Http\Controllers\Reports\ReportController::class, 'customers'])->name('customers');
+        Route::get('/customers/excel', [App\Http\Controllers\Reports\ReportController::class, 'customersExcel'])->name('customers.excel');
+        Route::get('/customers/pdf', [App\Http\Controllers\Reports\ReportController::class, 'customersPdf'])->name('customers.pdf');
+
+        Route::get('/categories', [App\Http\Controllers\Reports\ReportController::class, 'categories'])->name('categories');
+        Route::get('/categories/excel', [App\Http\Controllers\Reports\ReportController::class, 'categoriesExcel'])->name('categories.excel');
+        Route::get('/categories/pdf', [App\Http\Controllers\Reports\ReportController::class, 'categoriesPdf'])->name('categories.pdf');
+    });
+
 require __DIR__ . '/auth.php';
