@@ -28,7 +28,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-50 dark:bg-gray-950" x-data="{
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-950" x-data="{
         sidebarOpen: false,
         darkMode: localStorage.getItem('darkMode') === 'true'
     }" x-init="$watch('darkMode', value => {
