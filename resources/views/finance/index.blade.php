@@ -32,14 +32,14 @@
             </div>
 
             {{-- Filter Periode --}}
-            <div class="mb-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4">
+            <div class="mb-6 bg-white dark:bg-gray-900 rounded-lg shadow-sm p-4">
                 <form method="GET" action="{{ route('finance.index') }}" class="flex flex-wrap gap-4 items-end">
                     <div class="flex-1 min-w-[200px]">
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Dari Tanggal
                         </label>
                         <input type="date" name="start_date" value="{{ $startDate }}"
-                            class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300">
+                            class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300">
                     </div>
 
                     <div class="flex-1 min-w-[200px]">
@@ -47,7 +47,7 @@
                             Sampai Tanggal
                         </label>
                         <input type="date" name="end_date" value="{{ $endDate }}"
-                            class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300">
+                            class="w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300">
                     </div>
 
                     <button type="submit"
@@ -65,7 +65,7 @@
             {{-- Summary Cards --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                 {{-- Total Pemasukan --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Pemasukan</h3>
                         <div
@@ -87,7 +87,7 @@
                 </div>
 
                 {{-- Total Pengeluaran --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">Total Pengeluaran</h3>
                         <div
@@ -105,7 +105,7 @@
                 </div>
 
                 {{-- Laba/Rugi --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">Laba/Rugi</h3>
                         <div
@@ -124,7 +124,7 @@
                 </div>
 
                 {{-- Profit Margin --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">Profit Margin</h3>
                         <div
@@ -145,7 +145,7 @@
             {{-- Recent Transactions --}}
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {{-- Recent Expenses --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pengeluaran Terbaru</h3>
                         <a href="{{ route('finance.expenses.index') }}"
@@ -157,7 +157,7 @@
                     @if ($recentExpenses->count() > 0)
                         <div class="space-y-3">
                             @foreach ($recentExpenses as $expense)
-                                <div class="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-sm font-medium text-gray-900 dark:text-white">
                                             {{ $expense->expense_date->format('d M Y') }}
@@ -188,7 +188,7 @@
                 </div>
 
                 {{-- Recent Incomes --}}
-                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-sm p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Pemasukan Lain Terbaru</h3>
                         <a href="{{ route('finance.incomes.index') }}"
@@ -200,7 +200,7 @@
                     @if ($recentIncomes->count() > 0)
                         <div class="space-y-3">
                             @foreach ($recentIncomes as $income)
-                                <div class="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+                                <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-sm font-medium text-gray-900 dark:text-white">
                                             {{ $income->income_date->format('d M Y') }}
