@@ -10,11 +10,17 @@ class Order extends Model
 {
     protected $fillable = ['customer_id', 'order_date', 'total_price', 'status', 'notes'];
 
-    public function customer(){
+    protected $casts = [
+        'order_date' => 'date',
+    ];
+
+    public function customer()
+    {
         return $this->belongsTo(Customer::class);
     }
 
-    public function items(){
+    public function items()
+    {
         return $this->hasMany(OrderItem::class);
     }
 }
