@@ -192,7 +192,7 @@
 
                 <!-- Right Image with Floating Effect -->
                 <div class="relative animate-float">
-                    <div class="relative z-10">
+                    <div class="relative z-9">
                         <div class="rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 p-1">
                             <div class="rounded-3xl bg-white dark:bg-gray-800 p-8">
                                 <div
