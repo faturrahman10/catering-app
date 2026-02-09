@@ -193,28 +193,105 @@
                 <!-- Right Image with Floating Effect -->
                 <div class="relative animate-float">
                     <div class="relative z-9">
-                        <div class="rounded-3xl bg-gradient-to-br from-indigo-500 to-purple-600 p-1">
-                            <div class="rounded-3xl bg-white dark:bg-gray-800 p-8">
+                        <div
+                            class="rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-1 shadow-2xl">
+                            <div class="rounded-3xl bg-white dark:bg-gray-900 p-8">
                                 <div
-                                    class="aspect-square rounded-2xl bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-indigo-900/40 dark:to-purple-900/40 flex items-center justify-center">
-                                    <div class="text-center space-y-4">
-                                        <div class="text-6xl">🍱</div>
-                                        <p class="text-gray-600 dark:text-gray-400 font-semibold">Premium Catering</p>
+                                    class="aspect-square rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/50 dark:to-purple-950/50 flex items-center justify-center overflow-hidden relative group">
+                                    <!-- Background Pattern -->
+                                    <div class="absolute inset-0 opacity-5">
+                                        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                            <defs>
+                                                <pattern id="dots" x="0" y="0" width="20" height="20"
+                                                    patternUnits="userSpaceOnUse">
+                                                    <circle cx="2" cy="2" r="1"
+                                                        fill="currentColor" />
+                                                </pattern>
+                                            </defs>
+                                            <rect width="100%" height="100%" fill="url(#dots)" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="text-center space-y-6 relative z-10">
+                                        <!-- Premium Catering Icon -->
+                                        <div class="relative inline-block">
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity">
+                                            </div>
+                                            <svg class="w-24 h-24 text-indigo-600 dark:text-indigo-400 relative transform group-hover:scale-110 transition-transform duration-300"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="1.5"
+                                                    d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                                                <!-- Food elements -->
+                                                <circle cx="9" cy="9" r="1.5" fill="currentColor" />
+                                                <circle cx="15" cy="9" r="1.5" fill="currentColor" />
+                                                <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-xl font-bold text-gray-900 dark:text-white mb-1">Premium
+                                                Catering</p>
+                                            <p class="text-sm text-gray-500 dark:text-gray-400">Layanan Berkualitas
+                                                Tinggi</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Floating Cards -->
-                    <div class="absolute -top-6 -right-6 w-32 h-32 rounded-2xl glass-effect p-4 shadow-xl">
-                        <div class="text-3xl mb-2">⭐</div>
-                        <div class="text-xs font-semibold">Rating 4.9/5</div>
+                    <!-- Floating Card - Rating -->
+                    <div
+                        class="absolute -top-6 -right-6 w-36 h-36 rounded-2xl glass-effect p-5 shadow-2xl hover:shadow-indigo-500/20 hover:-translate-y-1 transition-all duration-300 border border-white/20">
+                        <div class="flex flex-col items-center justify-center h-full space-y-2">
+                            <!-- Star Icon -->
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-yellow-400 rounded-full blur-md opacity-50"></div>
+                                <svg class="w-12 h-12 text-yellow-400 relative" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-900 dark:text-white">4.9/5</div>
+                                <div class="text-xs font-semibold text-gray-600 dark:text-gray-400">Rating Pelanggan
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="absolute -bottom-6 -left-6 w-32 h-32 rounded-2xl glass-effect p-4 shadow-xl">
-                        <div class="text-3xl mb-2">🚚</div>
-                        <div class="text-xs font-semibold">Free Delivery</div>
+                    <!-- Floating Card - Free Delivery -->
+                    <div
+                        class="absolute -bottom-6 -left-6 w-36 h-36 rounded-2xl glass-effect p-5 shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300 border border-white/20">
+                        <div class="flex flex-col items-center justify-center h-full space-y-2">
+                            <!-- Delivery Truck Icon -->
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-green-400 rounded-full blur-md opacity-50"></div>
+                                <svg class="w-12 h-12 text-green-500 relative" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                                </svg>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold text-gray-900 dark:text-white">Gratis Ongkir</div>
+                                <div class="text-xs font-semibold text-gray-600 dark:text-gray-400">Area Tertentu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Floating Badge - New -->
+                    <div class="absolute top-1/2 -right-4 transform -translate-y-1/2">
+                        <div
+                            class="w-20 h-20 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 shadow-lg flex items-center justify-center animate-pulse">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
