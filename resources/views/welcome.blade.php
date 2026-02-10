@@ -173,21 +173,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div x-show="mobileMenu" x-data="{ mobileMenu: false }" class="md:hidden glass-effect border-t dark:border-gray-700">
-        <div class="px-4 py-4 space-y-3">
-            <a href="#menu" class="block py-2 hover:text-indigo-600 transition-colors">Menu</a>
-            <a href="#cara-kerja" class="block py-2 hover:text-indigo-600 transition-colors">Cara Pesan</a>
-            <a href="#testimoni" class="block py-2 hover:text-indigo-600 transition-colors">Testimoni</a>
-            <a href="#paket" class="block py-2 hover:text-indigo-600 transition-colors">Paket</a>
-            <a href="{{ route('login') }}"
-                class="block w-full text-center px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold">
-                Pesan Sekarang
-            </a>
-        </div>
-    </div>
-    </nav>
-
     <!-- HERO SECTION with Modern Design -->
     <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div class="max-w-7xl mx-auto">
