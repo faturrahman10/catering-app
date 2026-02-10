@@ -12,6 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
+        /* KEYFRAME ANIMATIONS */
         @keyframes float {
 
             0%,
@@ -36,6 +37,7 @@
             }
         }
 
+        /* ANIMATION CLASSES */
         .animate-float {
             animation: float 3s ease-in-out infinite;
         }
@@ -44,6 +46,7 @@
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
+        /* GRADIENT TEXT */
         .gradient-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
@@ -51,48 +54,224 @@
             background-clip: text;
         }
 
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .dark .glass-effect {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
+        /* SMOOTH SCROLL */
         html {
             scroll-behavior: smooth;
         }
 
+        /* NAVBAR STYLING */
+        .navbar {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Light mode navbar */
+        .light-mode .navbar {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* NAV LINK */
         .nav-link {
-            @apply relative text-gray-700 dark:text-gray-300 font-medium transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400;
+            position: relative;
+            color: #cbd5e1;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-link:hover {
+            color: #818cf8;
         }
 
         .nav-link::after {
             content: '';
-            @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            transition: width 0.3s;
         }
 
         .nav-link:hover::after {
-            @apply w-full;
+            width: 100%;
         }
 
-        .cta-button {
-            @apply group inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300;
+        /* Light mode nav link */
+        .light-mode .nav-link {
+            color: #475569;
         }
 
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px) saturate(180%);
-            -webkit-backdrop-filter: blur(12px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .light-mode .nav-link:hover {
+            color: #6366f1;
         }
 
-        .dark .glass-effect {
-            background: rgba(17, 24, 39, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* CTA BUTTON */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.5rem;
+            border-radius: 9999px;
+            background: linear-gradient(to right, #6366f1, #a855f7);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.6);
+            transform: scale(1.05);
+        }
+
+        .cta-btn svg {
+            transition: transform 0.3s;
+        }
+
+        .cta-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* THEME TOGGLE BUTTON */
+        .theme-toggle {
+            padding: 0.625rem;
+            border-radius: 0.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .theme-toggle:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .theme-toggle svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #cbd5e1;
+            transition: all 0.2s;
+        }
+
+        .light-mode .theme-toggle svg {
+            color: #64748b;
+        }
+
+        .theme-toggle:hover svg {
+            color: #fbbf24;
+        }
+
+        .light-mode .theme-toggle:hover svg {
+            color: #6366f1;
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-mode .mobile-menu {
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #cbd5e1;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .mobile-nav-link:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+        }
+
+        .light-mode .mobile-nav-link {
+            color: #475569;
+        }
+
+        .light-mode .mobile-nav-link:hover {
+            background: rgba(99, 102, 241, 0.05);
+            color: #6366f1;
+        }
+
+        /* MOBILE CTA */
+        .mobile-cta {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
+            border-radius: 9999px;
+            background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.5);
+            transition: all 0.3s;
+        }
+
+        .mobile-cta:hover {
+            box-shadow: 0 25px 30px -5px rgba(99, 102, 241, 0.7);
+            transform: scale(1.02);
+        }
+
+        /* HAMBURGER MENU */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 1.5rem;
+            height: 2px;
+            background: #cbd5e1;
+            transition: all 0.3s;
+        }
+
+        .light-mode .hamburger span {
+            background: #475569;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
         }
     </style>
 </head>
@@ -101,23 +280,13 @@
     class="bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-gray-800 dark:text-gray-100 transition-all duration-300">
 
     <!-- NAVBAR -->
-    <nav x-data="{
-        mobileMenu: false,
-        scrolled: false,
-        init() {
-            window.addEventListener('scroll', () => {
-                this.scrolled = window.scrollY > 20
-            })
-        }
-    }" :class="scrolled ? 'shadow-lg' : ''"
-        class="fixed top-0 left-0 right-0 z-50 glass-effect transition-all duration-300">
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo - SVG Version -->
+                <!-- Logo -->
                 <a href="/" class="flex items-center space-x-3 group">
                     <div
                         class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 flex items-center justify-center shadow-lg group-hover:shadow-indigo-500/50 transition-all duration-300">
-                        <!-- Chef Hat SVG Icon -->
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -136,26 +305,21 @@
                     <a href="#paket" class="nav-link">Paket</a>
 
                     <!-- Theme Toggle -->
-                    <button @click="toggle()"
-                        class="p-2.5 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-all duration-200 group">
-                        <svg x-show="!dark" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 group-hover:text-indigo-600 transition-colors" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
-                        <svg x-show="dark" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-300 group-hover:text-yellow-400 transition-colors" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
+                    <button onclick="toggleTheme()" class="theme-toggle">
+                        <svg id="theme-icon-sun" class="hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
+                        <svg id="theme-icon-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
                     </button>
 
-                    <a href="{{ route('login') }}" class="cta-button">
+                    <a href="{{ route('login') }}" class="cta-btn">
                         <span>Pesan Sekarang</span>
-                        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
@@ -163,45 +327,31 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button @click="mobileMenu = !mobileMenu"
-                    class="md:hidden p-2 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-all">
-                    <svg x-show="!mobileMenu" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <svg x-show="mobileMenu" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                <button onclick="toggleMobileMenu()" class="hamburger md:hidden" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu - Improved -->
-        <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0 transform -translate-y-2"
-            x-transition:enter-end="opacity-100 transform translate-y-0"
-            x-transition:leave="transition ease-in duration-150"
-            x-transition:leave-start="opacity-100 transform translate-y-0"
-            x-transition:leave-end="opacity-0 transform -translate-y-2" @click.away="mobileMenu = false"
-            class="md:hidden glass-effect border-t dark:border-gray-700">
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
             <div class="px-4 py-4 space-y-1">
-                <a href="#menu" @click="mobileMenu = false"
-                    class="block py-3 px-4 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-colors">Menu</a>
-                <a href="#cara-kerja" @click="mobileMenu = false"
-                    class="block py-3 px-4 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-colors">Cara
-                    Pesan</a>
-                <a href="#testimoni" @click="mobileMenu = false"
-                    class="block py-3 px-4 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-colors">Testimoni</a>
-                <a href="#paket" @click="mobileMenu = false"
-                    class="block py-3 px-4 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700/50 transition-colors">Paket</a>
+                <a href="#menu" onclick="closeMobileMenu()" class="mobile-nav-link">Menu</a>
+                <a href="#cara-kerja" onclick="closeMobileMenu()" class="mobile-nav-link">Cara Pesan</a>
+                <a href="#testimoni" onclick="closeMobileMenu()" class="mobile-nav-link">Testimoni</a>
+                <a href="#paket" onclick="closeMobileMenu()" class="mobile-nav-link">Paket</a>
 
-                <div class="pt-4 border-t dark:border-gray-700">
-                    <a href="{{ route('login') }}"
-                        class="block w-full text-center px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold shadow-lg">
+                <a href="{{ route('login') }}" class="mobile-cta">
+                    <span class="inline-flex items-center gap-2">
                         Pesan Sekarang
-                    </a>
-                </div>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </span>
+                </a>
             </div>
         </div>
     </nav>
@@ -225,8 +375,7 @@
 
                     <!-- Heading - Improved Hierarchy -->
                     <div class="space-y-4">
-                        <h1
-                            class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
                             Nikmati Makanan
                             <span class="gradient-text block mt-2">Lezat & Bergizi</span>
                             Setiap Hari
@@ -1112,6 +1261,71 @@
                 }
             }
         }
+
+        // Theme Switcher
+        function toggleTheme() {
+            const body = document.body;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const body = document.body;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const hamburger = document.getElementById('hamburger');
+
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const hamburger = document.getElementById('hamburger');
+
+            menu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
     </script>
 
 </body>
