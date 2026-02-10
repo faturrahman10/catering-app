@@ -179,46 +179,136 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
                 <div class="animate-fade-in-up space-y-8">
+                    <!-- Badge - SVG Version -->
                     <div
-                        class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold">
-                        ✨ Catering Premium #1 di Indonesia
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 text-sm font-semibold shadow-sm">
+                        <!-- Trophy/Award Icon -->
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <span>Catering Premium #1 di Indonesia</span>
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                        Nikmati Makanan
-                        <span class="gradient-text block mt-2">Lezat & Bergizi</span>
-                        Setiap Hari
-                    </h1>
+                    <!-- Heading - Improved Hierarchy -->
+                    <div class="space-y-4">
+                        <h1
+                            class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
+                            Nikmati Makanan
+                            <span class="gradient-text block mt-2">Lezat & Bergizi</span>
+                            Setiap Hari
+                        </h1>
+                        <div class="w-20 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full"></div>
+                    </div>
 
-                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
                         Pesan catering praktis dengan menu variatif, bahan segar, dan pengantaran tepat waktu. Solusi
                         makan harian untuk keluarga, kantor, dan acara spesial Anda.
                     </p>
 
+                    <!-- CTA Buttons - Improved Hierarchy -->
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="{{ route('register') }}"
-                            class="px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 text-center">
-                            Mulai Pesan Gratis
+                            class="group relative px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-2xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300 text-center overflow-hidden">
+                            <span class="relative z-10 flex items-center justify-center gap-2">
+                                Mulai Pesan Gratis
+                                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </span>
+                            <!-- Shine effect -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000">
+                            </div>
                         </a>
+
                         <a href="#menu"
-                            class="px-8 py-4 rounded-full border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all text-center">
-                            Lihat Menu
+                            class="group px-8 py-4 rounded-full border-2 border-indigo-600 dark:border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 transition-all duration-300 text-center">
+                            <span class="flex items-center justify-center gap-2">
+                                Lihat Menu
+                                <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </span>
                         </a>
                     </div>
 
-                    <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-6 pt-8 border-t dark:border-gray-700">
-                        <div>
-                            <div class="text-3xl font-bold text-indigo-600">1000+</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Pelanggan Setia</div>
+                    <!-- Stats - Improved Layout & Icons -->
+                    <div class="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <div class="text-center sm:text-left group cursor-pointer">
+                            <div class="flex items-center gap-2 justify-center sm:justify-start mb-1">
+                                <svg class="w-5 h-5 text-indigo-600 dark:text-indigo-400" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                <div
+                                    class="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                                    1000+</div>
+                            </div>
+                            <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">Pelanggan
+                                Setia</div>
                         </div>
-                        <div>
-                            <div class="text-3xl font-bold text-indigo-600">50+</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Menu Pilihan</div>
+
+                        <div class="text-center sm:text-left group cursor-pointer">
+                            <div class="flex items-center gap-2 justify-center sm:justify-start mb-1">
+                                <svg class="w-5 h-5 text-indigo-600 dark:text-indigo-400" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                </svg>
+                                <div
+                                    class="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                                    50+</div>
+                            </div>
+                            <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">Menu Pilihan
+                            </div>
                         </div>
-                        <div>
-                            <div class="text-3xl font-bold text-indigo-600">4.9</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Rating Google</div>
+
+                        <div class="text-center sm:text-left group cursor-pointer">
+                            <div class="flex items-center gap-2 justify-center sm:justify-start mb-1">
+                                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <div
+                                    class="text-2xl sm:text-3xl font-bold text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                                    4.9</div>
+                            </div>
+                            <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">Rating Google
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Indicators - NEW -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span class="font-medium">100% Halal</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="font-medium">Bahan Segar</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="font-medium">Tepat Waktu</span>
                         </div>
                     </div>
                 </div>
