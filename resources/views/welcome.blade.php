@@ -61,6 +61,39 @@
             background: rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav-link {
+            @apply relative text-gray-700 dark:text-gray-300 font-medium transition-colors duration-200 hover:text-indigo-600 dark:hover:text-indigo-400;
+        }
+
+        .nav-link::after {
+            content: '';
+            @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 transition-all duration-300;
+        }
+
+        .nav-link:hover::after {
+            @apply w-full;
+        }
+
+        .cta-button {
+            @apply group inline-flex items-center px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .glass-effect {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
 
