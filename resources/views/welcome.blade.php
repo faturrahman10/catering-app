@@ -604,65 +604,187 @@
     </section>
 
     <!-- FEATURES Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
+    <section
+        class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16 space-y-4">
+                <div
+                    class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-4">
+                    Keunggulan Kami
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     Kenapa <span class="gradient-text">Pilih Kami?</span>
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                    Kami berkomitmen memberikan pengalaman catering terbaik dengan kualitas premium
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Kami berkomitmen memberikan pengalaman catering terbaik dengan kualitas premium dan layanan
+                    profesional
                 </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Features Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Feature 1: Menu Variatif -->
                 <div
-                    class="group p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <!-- Gradient Background on Hover -->
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        🍽️
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Menu Variatif</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        50+ pilihan menu yang berganti setiap minggu untuk kepuasan maksimal
-                    </p>
+
+                    <div class="relative z-10">
+                        <!-- Icon Container -->
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-indigo-500/30">
+                            <!-- Utensils/Restaurant Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12h18M3 6h18M3 18h18" />
+                            </svg>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Menu Variatif</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            50+ pilihan menu yang berganti setiap minggu untuk kepuasan maksimal
+                        </p>
+
+                        <!-- Decorative Arrow -->
+                        <div
+                            class="mt-4 flex items-center text-indigo-600 dark:text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-sm font-semibold mr-2">Lihat Menu</span>
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Feature 2: Bahan Premium -->
                 <div
-                    class="group p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-green-500 dark:hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        🥗
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-500/5 to-emerald-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Bahan Premium</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        Bahan segar pilihan setiap hari dengan standar kualitas tertinggi
-                    </p>
+
+                    <div class="relative z-10">
+                        <!-- Icon Container -->
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-green-500/30">
+                            <!-- Leaf/Organic Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Bahan Premium</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Bahan segar pilihan setiap hari dengan standar kualitas tertinggi
+                        </p>
+
+                        <div
+                            class="mt-4 flex items-center text-green-600 dark:text-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-sm font-semibold mr-2">Pelajari Lebih</span>
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Feature 3: Pengiriman Cepat -->
                 <div
-                    class="group p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-300">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        🚚
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Pengiriman Cepat</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        Gratis ongkir untuk area tertentu dan tepat waktu setiap hari
-                    </p>
+
+                    <div class="relative z-10">
+                        <!-- Icon Container -->
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-orange-500/30">
+                            <!-- Truck/Delivery Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                            </svg>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Pengiriman Cepat</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Gratis ongkir untuk area tertentu dan tepat waktu setiap hari
+                        </p>
+
+                        <div
+                            class="mt-4 flex items-center text-orange-600 dark:text-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-sm font-semibold mr-2">Cek Area</span>
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Feature 4: Harga Terjangkau -->
                 <div
-                    class="group p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-pink-500 dark:hover:border-pink-500 hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-2 transition-all duration-300">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
-                        💰
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500/5 to-rose-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Harga Terjangkau</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        Paket hemat mulai dari 25rb/porsi dengan kualitas premium
-                    </p>
+
+                    <div class="relative z-10">
+                        <!-- Icon Container -->
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-pink-500/30">
+                            <!-- Price Tag/Money Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Harga Terjangkau</h3>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Paket hemat mulai dari 25rb/porsi dengan kualitas premium
+                        </p>
+
+                        <div
+                            class="mt-4 flex items-center text-pink-600 dark:text-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <span class="text-sm font-semibold mr-2">Lihat Paket</span>
+                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="mt-16 text-center">
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    Masih ragu? Lihat testimoni dari 1000+ pelanggan kami
+                </p>
+                <a href="#testimoni"
+                    class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-2xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300">
+                    <span>Lihat Testimoni</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
