@@ -273,6 +273,36 @@
                 display: flex;
             }
         }
+
+        /* Progress Line Animation */
+        @keyframes progress {
+            0% {
+                transform: scaleX(0);
+            }
+
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        .animate-progress {
+            animation: progress 3s ease-in-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* Pulse Animation for Step Icons */
+        @keyframes ping {
+
+            75%,
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .animate-ping {
+            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
     </style>
 </head>
 
@@ -790,76 +820,206 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section id="cara-kerja" class="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="cara-kerja" class="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16 space-y-4">
+                <div
+                    class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-4">
+                    Mudah & Cepat
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     Cara <span class="gradient-text">Pemesanan</span>
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400">
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                     Hanya 4 langkah mudah untuk menikmati catering premium kami
                 </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center group">
-                    <div class="relative mb-6">
-                        <div
-                            class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
-                            🍽️
-                        </div>
-                        <div
-                            class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">
-                            1
-                        </div>
+            <!-- Steps Grid with Connecting Lines -->
+            <div class="relative">
+                <!-- Connecting Line (Desktop Only) -->
+                <div class="hidden lg:block absolute top-10 left-0 right-0 h-1">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-indigo-200 via-green-200 via-orange-200 to-pink-200 dark:from-indigo-900/30 dark:via-green-900/30 dark:via-orange-900/30 dark:to-pink-900/30 rounded-full">
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Pilih Menu</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Jelajahi 50+ menu lezat kami</p>
+                    <!-- Animated Progress Line -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-indigo-500 via-green-500 via-orange-500 to-pink-500 rounded-full transform origin-left scale-x-0 animate-progress">
+                    </div>
                 </div>
 
-                <div class="text-center group">
-                    <div class="relative mb-6">
-                        <div
-                            class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
-                            🗓️
-                        </div>
-                        <div
-                            class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-sm">
-                            2
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Tentukan Jadwal</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Pilih tanggal dan waktu delivery</p>
-                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1: Pilih Menu -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 inline-block">
+                            <!-- Main Circle -->
+                            <div
+                                class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
+                                <!-- Menu/Food Icon -->
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                            </div>
 
-                <div class="text-center group">
-                    <div class="relative mb-6">
-                        <div
-                            class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
-                            💳
-                        </div>
-                        <div
-                            class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-sm">
-                            3
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Bayar Mudah</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Transfer, e-wallet, atau COD</p>
-                </div>
+                            <!-- Step Number Badge -->
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                1
+                            </div>
 
-                <div class="text-center group">
-                    <div class="relative mb-6">
-                        <div
-                            class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
-                            🎉
+                            <!-- Pulse Animation -->
+                            <div class="absolute inset-0 rounded-full bg-indigo-500 animate-ping opacity-20"></div>
                         </div>
-                        <div
-                            class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-pink-600 text-white flex items-center justify-center font-bold text-sm">
-                            4
+
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Pilih Menu</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            Jelajahi 50+ menu lezat dengan berbagai pilihan masakan
+                        </p>
+
+                        <!-- Hover Icon -->
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg class="w-6 h-6 mx-auto text-indigo-600 dark:text-indigo-400" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
                         </div>
                     </div>
-                    <h3 class="font-bold text-lg mb-2">Terima & Nikmati</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Makanan sampai tepat waktu!</p>
+
+                    <!-- Step 2: Tentukan Jadwal -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 inline-block">
+                            <div
+                                class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
+                                <!-- Calendar Icon -->
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                2
+                            </div>
+
+                            <div class="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></div>
+                        </div>
+
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Tentukan Jadwal</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            Pilih tanggal dan waktu pengiriman yang sesuai
+                        </p>
+
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg class="w-6 h-6 mx-auto text-green-600 dark:text-green-400" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Bayar Mudah -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 inline-block">
+                            <div
+                                class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
+                                <!-- Credit Card Icon -->
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                </svg>
+                            </div>
+
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                3
+                            </div>
+
+                            <div class="absolute inset-0 rounded-full bg-orange-500 animate-ping opacity-20"></div>
+                        </div>
+
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Bayar Mudah</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            Transfer bank, e-wallet, atau bayar saat terima (COD)
+                        </p>
+
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg class="w-6 h-6 mx-auto text-orange-600 dark:text-orange-400" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Terima & Nikmati -->
+                    <div class="text-center group">
+                        <div class="relative mb-6 inline-block">
+                            <div
+                                class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center shadow-lg shadow-pink-500/40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">
+                                <!-- Check/Success Icon -->
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-pink-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                4
+                            </div>
+
+                            <div class="absolute inset-0 rounded-full bg-pink-500 animate-ping opacity-20"></div>
+                        </div>
+
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Terima & Nikmati</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                            Makanan sampai tepat waktu dan siap dinikmati!
+                        </p>
+
+                        <div class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg class="w-6 h-6 mx-auto text-pink-600 dark:text-pink-400" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="mt-16 text-center">
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    Siap untuk memulai? Pesan sekarang dan nikmati pengalaman catering terbaik!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="{{ route('register') }}"
+                        class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-2xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span>Mulai Pesan Sekarang</span>
+                    </a>
+                    <a href="#menu"
+                        class="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        <span>Lihat Menu</span>
+                    </a>
                 </div>
             </div>
         </div>
