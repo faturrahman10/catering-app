@@ -866,7 +866,7 @@
 
                             <!-- Step Number Badge -->
                             <div
-                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                class="absolute -top-2 -right-2 w-8 h-8 z-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
                                 1
                             </div>
 
@@ -903,7 +903,7 @@
                             </div>
 
                             <div
-                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                class="absolute -top-2 -right-2 w-8 h-8 z-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
                                 2
                             </div>
 
@@ -938,7 +938,7 @@
                             </div>
 
                             <div
-                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                class="absolute -top-2 -right-2 w-8 h-8 z-10 rounded-full bg-orange-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
                                 3
                             </div>
 
@@ -973,7 +973,7 @@
                             </div>
 
                             <div
-                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-pink-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
+                                class="absolute -top-2 -right-2 w-8 h-8 z-10 rounded-full bg-pink-600 text-white flex items-center justify-center font-bold text-sm shadow-lg ring-4 ring-white dark:ring-gray-900 group-hover:scale-125 transition-transform duration-300">
                                 4
                             </div>
 
