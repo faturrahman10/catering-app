@@ -1026,116 +1026,289 @@
     </section>
 
     <!-- PRICING PACKAGES -->
-    <section id="paket" class="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
+    <section id="paket"
+        class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16 space-y-4">
+                <div
+                    class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-4">
+                    Harga Terbaik
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     Paket <span class="gradient-text">Terbaik Kami</span>
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400">
-                    Pilih paket yang sesuai dengan kebutuhan Anda
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Pilih paket yang sesuai dengan kebutuhan dan budget Anda
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-6">
+
                 <!-- Basic Package -->
                 <div
-                    class="rounded-3xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 hover:shadow-2xl transition-all">
+                    class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-8 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <!-- Icon -->
                     <div class="text-center mb-6">
-                        <div class="text-4xl mb-4">🥗</div>
-                        <h3 class="text-2xl font-bold mb-2">Paket Hemat</h3>
-                        <div class="text-4xl font-bold gradient-text mb-2">25K</div>
-                        <p class="text-gray-600 dark:text-gray-400">per porsi</p>
+                        <div class="inline-block relative">
+                            <div
+                                class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-green-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                                <!-- Salad Bowl Icon -->
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 mt-4 text-gray-900 dark:text-white">Paket Hemat</h3>
+                        <div class="mb-2">
+                            <span class="text-4xl font-bold gradient-text">25K</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">per porsi</p>
                     </div>
+
+                    <!-- Features List -->
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
+                            <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
                             <span class="text-gray-600 dark:text-gray-400">1 Nasi + 1 Lauk</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
+                            <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
                             <span class="text-gray-600 dark:text-gray-400">1 Sayur</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span class="text-gray-600 dark:text-gray-400">Free Delivery</span>
+                            <svg class="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-400">Gratis Ongkir</span>
+                        </li>
+                        <li class="flex items-start opacity-30">
+                            <svg class="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-400 dark:text-gray-600">Minuman</span>
                         </li>
                     </ul>
+
+                    <!-- CTA Button -->
                     <a href="{{ route('register') }}"
-                        class="block w-full py-3 rounded-full border-2 border-indigo-600 text-indigo-600 font-semibold text-center hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all">
+                        class="block w-full py-4 rounded-full border-2 border-indigo-600 dark:border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold text-center hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-500 group-hover:shadow-lg transition-all duration-300">
                         Pilih Paket
                     </a>
                 </div>
 
-                <!-- Popular Package -->
+                <!-- Popular Package (Featured) -->
                 <div
-                    class="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-600 p-8 text-white transform scale-105 hover:shadow-2xl transition-all relative">
+                    class="group relative rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-8 text-white transform md:scale-105 hover:scale-110 hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 z-10">
+                    <!-- Popular Badge -->
                     <div
-                        class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-yellow-400 text-gray-900 font-bold text-sm">
-                        PALING POPULER
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 font-bold text-sm shadow-lg">
+                        ⭐ PALING POPULER
                     </div>
-                    <div class="text-center mb-6">
-                        <div class="text-4xl mb-4">🍱</div>
-                        <h3 class="text-2xl font-bold mb-2">Paket Komplit</h3>
-                        <div class="text-4xl font-bold mb-2">40K</div>
-                        <p class="text-indigo-100">per porsi</p>
+
+                    <!-- Decorative Elements -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+
+                    <div class="relative z-10">
+                        <!-- Icon -->
+                        <div class="text-center mb-6">
+                            <div class="inline-block relative">
+                                <div
+                                    class="w-20 h-20 mx-auto rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 border border-white/30">
+                                    <!-- Bento Box Icon -->
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 mt-4">Paket Komplit</h3>
+                            <div class="mb-2">
+                                <span class="text-4xl font-bold">40K</span>
+                            </div>
+                            <p class="text-indigo-100 text-sm">per porsi</p>
+                        </div>
+
+                        <!-- Features List -->
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-yellow-300 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-white">1 Nasi + 2 Lauk</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-yellow-300 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-white">1 Sayur + Buah</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-yellow-300 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-white">Gratis Ongkir</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-yellow-300 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-white">1 Minuman</span>
+                            </li>
+                        </ul>
+
+                        <!-- CTA Button -->
+                        <a href="{{ route('register') }}"
+                            class="block w-full py-4 rounded-full bg-white text-indigo-600 font-semibold text-center hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                            Pilih Paket Ini
+                        </a>
                     </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-yellow-300 mr-2">✓</span>
-                            <span>1 Nasi + 2 Lauk</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-yellow-300 mr-2">✓</span>
-                            <span>1 Sayur + Buah</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-yellow-300 mr-2">✓</span>
-                            <span>Free Delivery</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-yellow-300 mr-2">✓</span>
-                            <span>1 Minuman</span>
-                        </li>
-                    </ul>
-                    <a href="{{ route('register') }}"
-                        class="block w-full py-3 rounded-full bg-white text-indigo-600 font-semibold text-center hover:bg-gray-100 transition-all">
-                        Pilih Paket
-                    </a>
                 </div>
 
                 <!-- Premium Package -->
                 <div
-                    class="rounded-3xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 hover:shadow-2xl transition-all">
+                    class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-8 hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <!-- Icon -->
                     <div class="text-center mb-6">
-                        <div class="text-4xl mb-4">👑</div>
-                        <h3 class="text-2xl font-bold mb-2">Paket Premium</h3>
-                        <div class="text-4xl font-bold gradient-text mb-2">60K</div>
-                        <p class="text-gray-600 dark:text-gray-400">per porsi</p>
+                        <div class="inline-block relative">
+                            <div
+                                class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                                <!-- Crown Icon -->
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4" />
+                                </svg>
+                            </div>
+                            <!-- Premium Badge -->
+                            <div
+                                class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg">
+                                <span class="text-white text-xs font-bold">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 mt-4 text-gray-900 dark:text-white">Paket Premium</h3>
+                        <div class="mb-2">
+                            <span class="text-4xl font-bold gradient-text">60K</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">per porsi</p>
                     </div>
+
+                    <!-- Features List -->
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
+                            <svg class="w-5 h-5 text-purple-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
                             <span class="text-gray-600 dark:text-gray-400">1 Nasi + 3 Lauk Premium</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
+                            <svg class="w-5 h-5 text-purple-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
                             <span class="text-gray-600 dark:text-gray-400">2 Sayur + Buah</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
-                            <span class="text-gray-600 dark:text-gray-400">Free Delivery</span>
+                            <svg class="w-5 h-5 text-purple-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-400">Gratis Ongkir</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-green-500 mr-2">✓</span>
+                            <svg class="w-5 h-5 text-purple-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                    clip-rule="evenodd" />
+                            </svg>
                             <span class="text-gray-600 dark:text-gray-400">2 Minuman + Dessert</span>
                         </li>
                     </ul>
+
+                    <!-- CTA Button -->
                     <a href="{{ route('register') }}"
-                        class="block w-full py-3 rounded-full border-2 border-indigo-600 text-indigo-600 font-semibold text-center hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all">
+                        class="block w-full py-4 rounded-full border-2 border-purple-600 dark:border-purple-500 text-purple-600 dark:text-purple-400 font-semibold text-center hover:bg-purple-600 hover:text-white dark:hover:bg-purple-500 group-hover:shadow-lg transition-all duration-300">
                         Pilih Paket
                     </a>
                 </div>
+            </div>
+
+            <!-- Bottom Info -->
+            <div class="mt-16 text-center space-y-6">
+                <div class="flex flex-wrap justify-center gap-8 text-sm text-gray-600 dark:text-gray-400">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Tanpa biaya tersembunyi</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Bisa cancel kapan saja</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Garansi uang kembali</span>
+                    </div>
+                </div>
+
+                <p class="text-gray-600 dark:text-gray-400">
+                    Butuh paket custom? <a href="#"
+                        class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Hubungi kami</a>
+                </p>
             </div>
         </div>
     </section>
