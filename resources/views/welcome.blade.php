@@ -1314,73 +1314,363 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="testimoni" class="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="testimoni"
+        class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16 space-y-4">
+                <div
+                    class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-4">
+                    Testimoni
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     Kata <span class="gradient-text">Pelanggan Kami</span>
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400">
-                    Ribuan pelanggan puas dengan layanan kami
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Bergabung dengan ribuan pelanggan yang puas dengan layanan kami
                 </p>
+
+                <!-- Stats -->
+                <div class="flex flex-wrap justify-center gap-8 mt-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">1000+</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Pelanggan Aktif</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">4.9/5</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Rating Google</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">98%</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Kepuasan</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <!-- Testimonials Carousel Container -->
+            <div class="relative">
+                <!-- Gradient Overlays for fade effect -->
                 <div
-                    class="p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                    <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold mr-4">
-                            A
-                        </div>
-                        <div>
-                            <div class="font-bold">Ani Setiawati</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Ibu Rumah Tangga</div>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        "Menu variatif dan rasanya enak banget! Anak-anak saya suka semua. Pengantaran juga selalu tepat
-                        waktu. Recommended!"
-                    </p>
+                    class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 dark:from-gray-900 to-transparent z-10 pointer-events-none hidden md:block">
+                </div>
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 dark:from-gray-900 to-transparent z-10 pointer-events-none hidden md:block">
                 </div>
 
-                <div
-                    class="p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                    <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold mr-4">
-                            B
+                <!-- Carousel Wrapper -->
+                <div class="testimonial-carousel overflow-hidden" id="testimonialCarousel">
+                    <div class="flex transition-transform duration-700 ease-in-out" id="testimonialTrack">
+
+                        <!-- Testimonial 1 -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4">
+                            <div
+                                class="group relative p-8 rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300 h-full">
+                                <!-- Quote Icon -->
+                                <div
+                                    class="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <!-- Profile -->
+                                <div class="flex items-center mb-6">
+                                    <div class="relative">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-white dark:ring-gray-800">
+                                            A
+                                        </div>
+                                        <!-- Verified Badge -->
+                                        <div
+                                            class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center ring-2 ring-white dark:ring-gray-800">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="font-bold text-lg text-gray-900 dark:text-white">Ani Setiawati
+                                        </div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Ibu Rumah Tangga</div>
+                                    </div>
+                                </div>
+
+                                <!-- Rating -->
+                                <div class="flex items-center gap-1 mb-4">
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span
+                                        class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">5.0</span>
+                                </div>
+
+                                <!-- Testimonial Text -->
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed italic">
+                                    "Menu variatif dan rasanya enak banget! Anak-anak saya suka semua. Pengantaran juga
+                                    selalu tepat waktu. Recommended!"
+                                </p>
+
+                                <!-- Decorative gradient -->
+                                <div
+                                    class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="font-bold">Budi Santoso</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Karyawan Swasta</div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4">
+                            <div
+                                class="group relative p-8 rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-green-500 dark:hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300 h-full">
+                                <div
+                                    class="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex items-center mb-6">
+                                    <div class="relative">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-white dark:ring-gray-800">
+                                            B
+                                        </div>
+                                        <div
+                                            class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center ring-2 ring-white dark:ring-gray-800">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="font-bold text-lg text-gray-900 dark:text-white">Budi Santoso</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Karyawan Swasta</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-1 mb-4">
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span
+                                        class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">5.0</span>
+                                </div>
+
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed italic">
+                                    "Sangat membantu untuk makan siang di kantor. Harganya terjangkau tapi kualitasnya
+                                    premium. Pelayanan juga ramah!"
+                                </p>
+
+                                <div
+                                    class="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-500/5 to-emerald-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4">
+                            <div
+                                class="group relative p-8 rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-pink-500 dark:hover:border-pink-500 hover:shadow-2xl hover:shadow-pink-500/10 hover:-translate-y-2 transition-all duration-300 h-full">
+                                <div
+                                    class="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center shadow-lg">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex items-center mb-6">
+                                    <div class="relative">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-white dark:ring-gray-800">
+                                            C
+                                        </div>
+                                        <div
+                                            class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center ring-2 ring-white dark:ring-gray-800">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="font-bold text-lg text-gray-900 dark:text-white">Citra Dewi</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Pengusaha</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-1 mb-4">
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span
+                                        class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">5.0</span>
+                                </div>
+
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed italic">
+                                    "Sudah langganan 6 bulan. Menu selalu fresh dan higienis. Sistemnya juga mudah,
+                                    tinggal order lewat app!"
+                                </p>
+
+                                <div
+                                    class="absolute inset-0 rounded-3xl bg-gradient-to-br from-pink-500/5 to-rose-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Duplicate cards for infinite loop effect -->
+                        <!-- (Copy all 3 testimonials again untuk seamless loop) -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4">
+                            <div
+                                class="group relative p-8 rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-2 transition-all duration-300 h-full">
+                                <div
+                                    class="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+                                <div class="flex items-center mb-6">
+                                    <div class="relative">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl shadow-lg ring-4 ring-white dark:ring-gray-800">
+                                            A</div>
+                                        <div
+                                            class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center ring-2 ring-white dark:ring-gray-800">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd"
+                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="font-bold text-lg text-gray-900 dark:text-white">Ani Setiawati
+                                        </div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Ibu Rumah Tangga</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1 mb-4">
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span
+                                        class="ml-2 text-sm font-semibold text-gray-700 dark:text-gray-300">5.0</span>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed italic">"Menu variatif dan
+                                    rasanya enak banget! Anak-anak saya suka semua. Pengantaran juga selalu tepat waktu.
+                                    Recommended!"</p>
+                                <div
+                                    class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/5 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        "Sangat membantu untuk makan siang di kantor. Harganya terjangkau tapi kualitasnya premium.
-                        Pelayanan juga ramah!"
-                    </p>
                 </div>
 
-                <div
-                    class="p-8 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-                    <div class="flex items-center mb-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white font-bold mr-4">
-                            C
-                        </div>
-                        <div>
-                            <div class="font-bold">Citra Dewi</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Pengusaha</div>
-                        </div>
+                <!-- Navigation Buttons -->
+                <div class="flex justify-center gap-4 mt-12">
+                    <button onclick="prevTestimonial()"
+                        class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 flex items-center justify-center hover:border-indigo-500 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all shadow-lg">
+                        <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Dots Indicator -->
+                    <div class="flex items-center gap-2" id="dotsIndicator">
+                        <button onclick="goToTestimonial(0)"
+                            class="dot w-3 h-3 rounded-full bg-indigo-600 transition-all"></button>
+                        <button onclick="goToTestimonial(1)"
+                            class="dot w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-700 transition-all"></button>
+                        <button onclick="goToTestimonial(2)"
+                            class="dot w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-700 transition-all"></button>
                     </div>
-                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        "Sudah langganan 6 bulan. Menu selalu fresh dan higienis. Sistemnya juga mudah, tinggal order
-                        lewat app!"
-                    </p>
+
+                    <button onclick="nextTestimonial()"
+                        class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-700 flex items-center justify-center hover:border-indigo-500 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all shadow-lg">
+                        <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1658,8 +1948,10 @@
                     <h3 class="text-white font-bold mb-6">Menu</h3>
                     <ul class="space-y-3">
                         <li><a href="#menu" class="hover:text-indigo-400 transition-colors">Menu Harian</a></li>
-                        <li><a href="#paket" class="hover:text-indigo-400 transition-colors">Paket Catering</a></li>
-                        <li><a href="#cara-kerja" class="hover:text-indigo-400 transition-colors">Cara Pesan</a></li>
+                        <li><a href="#paket" class="hover:text-indigo-400 transition-colors">Paket Catering</a>
+                        </li>
+                        <li><a href="#cara-kerja" class="hover:text-indigo-400 transition-colors">Cara Pesan</a>
+                        </li>
                         <li><a href="#testimoni" class="hover:text-indigo-400 transition-colors">Testimoni</a></li>
                     </ul>
                 </div>
@@ -1748,6 +2040,9 @@
                 sunIcon.classList.remove('hidden');
                 moonIcon.classList.add('hidden');
             }
+
+            // Initialize testimonial carousel
+            initTestimonialCarousel();
         });
 
         // Mobile Menu Toggle
@@ -1781,6 +2076,87 @@
 
             lastScroll = currentScroll;
         });
+
+        // ========================================
+        // TESTIMONIAL CAROUSEL
+        // ========================================
+        let currentTestimonial = 0;
+        const totalTestimonials = 3;
+        let autoplayInterval;
+
+        function updateCarousel() {
+            const track = document.getElementById('testimonialTrack');
+            const dots = document.querySelectorAll('.dot');
+
+            if (!track || !dots.length) return; // Safety check
+
+            const isMobile = window.innerWidth < 768;
+            const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+            let cardWidth = 100; // default mobile (1 card)
+            if (isTablet) cardWidth = 50; // tablet (2 cards)
+            if (!isMobile && !isTablet) cardWidth = 33.333; // desktop (3 cards)
+
+            track.style.transform = `translateX(-${currentTestimonial * cardWidth}%)`;
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentTestimonial) {
+                    dot.classList.remove('bg-gray-300', 'dark:bg-gray-700');
+                    dot.classList.add('bg-indigo-600', 'w-8');
+                } else {
+                    dot.classList.remove('bg-indigo-600', 'w-8');
+                    dot.classList.add('bg-gray-300', 'dark:bg-gray-700', 'w-3');
+                }
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            updateCarousel();
+            resetAutoplay();
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+            updateCarousel();
+            resetAutoplay();
+        }
+
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            updateCarousel();
+            resetAutoplay();
+        }
+
+        function startAutoplay() {
+            autoplayInterval = setInterval(nextTestimonial, 5000); // Auto-scroll every 5 seconds
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+
+        function resetAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+
+        function initTestimonialCarousel() {
+            const carousel = document.getElementById('testimonialCarousel');
+
+            if (!carousel) return; // Exit if carousel doesn't exist
+
+            updateCarousel();
+            startAutoplay();
+
+            // Pause on hover
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+
+            // Handle window resize
+            window.addEventListener('resize', updateCarousel);
+        }
     </script>
 
 </body>
