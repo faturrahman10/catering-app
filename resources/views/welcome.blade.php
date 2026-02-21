@@ -1600,87 +1600,282 @@
     </section>
 
     <!-- MENU PREVIEW -->
-    <section id="menu" class="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
+    <section id="menu"
+        class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16 space-y-4">
+                <div
+                    class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-4">
+                    Menu Favorit
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     Menu <span class="gradient-text">Favorit Minggu Ini</span>
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400">
-                    Pilihan menu terpopuler dari pelanggan kami
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Pilihan menu terpopuler dari pelanggan kami dengan cita rasa autentik
                 </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Menu Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+                <!-- Menu Item 1: Ayam Geprek -->
                 <div
-                    class="group rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <!-- Popular Badge -->
                     <div
-                        class="aspect-square bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-900/40 dark:to-red-900/40 flex items-center justify-center text-6xl">
-                        🍗
+                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold shadow-lg">
+                        🔥 Popular
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Ayam Geprek</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Ayam crispy dengan sambal level</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-indigo-600">35K</span>
-                            <span class="text-yellow-400">⭐ 4.8</span>
+
+                    <!-- Image Container -->
+                    <div
+                        class="relative aspect-square bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 flex items-center justify-center overflow-hidden">
+                        <!-- Background Pattern -->
+                        <div class="absolute inset-0 opacity-10">
+                            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                <pattern id="dots-1" x="0" y="0" width="20" height="20"
+                                    patternUnits="userSpaceOnUse">
+                                    <circle cx="2" cy="2" r="1" fill="currentColor" />
+                                </pattern>
+                                <rect width="100%" height="100%" fill="url(#dots-1)" />
+                            </svg>
                         </div>
+
+                        <!-- Icon with Animation -->
+                        <div
+                            class="relative z-10 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <svg class="w-32 h-32 text-orange-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+
+                        <!-- Hover Overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-orange-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Ayam Geprek</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Ayam crispy dengan sambal level
+                            pilihan</p>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <div class="text-2xl font-bold text-orange-600">35K</div>
+                                <div class="text-xs text-gray-500">per porsi</div>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">4.8</span>
+                            </div>
+                        </div>
+
+                        <!-- Add to Cart Button (appears on hover) -->
+                        <button
+                            class="w-full py-3 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                            Pesan Sekarang
+                        </button>
                     </div>
                 </div>
 
+                <!-- Menu Item 2: Soto Ayam -->
                 <div
-                    class="group rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-green-500 dark:hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300">
                     <div
-                        class="aspect-square bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/40 flex items-center justify-center text-6xl">
-                        🍜
+                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold shadow-lg">
+                        ⭐ 4.9
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Soto Ayam</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Soto ayam kuah gurih nikmat</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-indigo-600">30K</span>
-                            <span class="text-yellow-400">⭐ 4.9</span>
+
+                    <div
+                        class="relative aspect-square bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 opacity-10">
+                            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                <pattern id="dots-2" x="0" y="0" width="20" height="20"
+                                    patternUnits="userSpaceOnUse">
+                                    <circle cx="2" cy="2" r="1" fill="currentColor" />
+                                </pattern>
+                                <rect width="100%" height="100%" fill="url(#dots-2)" />
+                            </svg>
                         </div>
+
+                        <div
+                            class="relative z-10 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <svg class="w-32 h-32 text-green-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-green-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Soto Ayam</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Soto ayam kuah gurih nikmat hangat</p>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <div class="text-2xl font-bold text-green-600">30K</div>
+                                <div class="text-xs text-gray-500">per porsi</div>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">4.9</span>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full py-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                            Pesan Sekarang
+                        </button>
                     </div>
                 </div>
 
+                <!-- Menu Item 3: Rendang Sapi -->
                 <div
-                    class="group rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-red-500 dark:hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2 transition-all duration-300">
                     <div
-                        class="aspect-square bg-gradient-to-br from-red-100 to-pink-100 dark:from-red-900/40 dark:to-pink-900/40 flex items-center justify-center text-6xl">
-                        🥘
+                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold shadow-lg">
+                        👑 Premium
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Rendang Sapi</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Rendang empuk bumbu meresap</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-indigo-600">45K</span>
-                            <span class="text-yellow-400">⭐ 5.0</span>
+
+                    <div
+                        class="relative aspect-square bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 opacity-10">
+                            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                <pattern id="dots-3" x="0" y="0" width="20" height="20"
+                                    patternUnits="userSpaceOnUse">
+                                    <circle cx="2" cy="2" r="1" fill="currentColor" />
+                                </pattern>
+                                <rect width="100%" height="100%" fill="url(#dots-3)" />
+                            </svg>
                         </div>
+
+                        <div
+                            class="relative z-10 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <svg class="w-32 h-32 text-red-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Rendang Sapi</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Rendang empuk bumbu meresap sempurna
+                        </p>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <div class="text-2xl font-bold text-red-600">45K</div>
+                                <div class="text-xs text-gray-500">per porsi</div>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">5.0</span>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full py-3 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-semibold opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                            Pesan Sekarang
+                        </button>
                     </div>
                 </div>
 
+                <!-- Menu Item 4: Nasi Goreng -->
                 <div
-                    class="group rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                    class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-yellow-500 dark:hover:border-yellow-500 hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-2 transition-all duration-300">
                     <div
-                        class="aspect-square bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-900/40 dark:to-orange-900/40 flex items-center justify-center text-6xl">
-                        🍛
+                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold shadow-lg">
+                        💰 Hemat
                     </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg mb-2">Nasi Goreng</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Nasi goreng spesial komplit</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-indigo-600">28K</span>
-                            <span class="text-yellow-400">⭐ 4.7</span>
+
+                    <div
+                        class="relative aspect-square bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 opacity-10">
+                            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                <pattern id="dots-4" x="0" y="0" width="20" height="20"
+                                    patternUnits="userSpaceOnUse">
+                                    <circle cx="2" cy="2" r="1" fill="currentColor" />
+                                </pattern>
+                                <rect width="100%" height="100%" fill="url(#dots-4)" />
+                            </svg>
+                        </div>
+
+                        <div
+                            class="relative z-10 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                            <svg class="w-32 h-32 text-yellow-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                        </div>
+
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-yellow-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         </div>
                     </div>
+
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Nasi Goreng</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Nasi goreng spesial komplit mantap</p>
+
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <div class="text-2xl font-bold text-yellow-600">28K</div>
+                                <div class="text-xs text-gray-500">per porsi</div>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">4.7</span>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full py-3 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                            Pesan Sekarang
+                        </button>
+                    </div>
                 </div>
+
             </div>
 
-            <div class="text-center mt-12">
+            <!-- CTA Button -->
+            <div class="text-center mt-16">
                 <a href="{{ route('register') }}"
-                    class="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                    Lihat Semua Menu
+                    class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-2xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300">
+                    <span>Lihat Semua Menu</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
                 </a>
             </div>
         </div>
