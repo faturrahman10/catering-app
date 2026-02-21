@@ -2134,7 +2134,6 @@
         </div>
     </footer>
 
-    <!-- Dark Mode Script -->
     <script>
         function themeSwitcher() {
             return {
