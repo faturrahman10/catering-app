@@ -1625,8 +1625,12 @@
                     class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-300">
                     <!-- Popular Badge -->
                     <div
-                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold shadow-lg">
-                        🔥 Popular
+                        class="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold shadow-lg">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                        </svg>
+                        <span>Popular</span>
                     </div>
 
                     <!-- Image Container -->
@@ -1690,9 +1694,14 @@
                 <!-- Menu Item 2: Soto Ayam -->
                 <div
                     class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-green-500 dark:hover:border-green-500 hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <!-- Rating Badge -->
                     <div
-                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold shadow-lg">
-                        ⭐ 4.9
+                        class="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold shadow-lg">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <span>4.9</span>
                     </div>
 
                     <div
@@ -1749,9 +1758,14 @@
                 <!-- Menu Item 3: Rendang Sapi -->
                 <div
                     class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-red-500 dark:hover:border-red-500 hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <!-- Premium Badge -->
                     <div
-                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold shadow-lg">
-                        👑 Premium
+                        class="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold shadow-lg">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <span>Premium</span>
                     </div>
 
                     <div
@@ -1809,9 +1823,15 @@
                 <!-- Menu Item 4: Nasi Goreng -->
                 <div
                     class="group relative rounded-3xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-yellow-500 dark:hover:border-yellow-500 hover:shadow-2xl hover:shadow-yellow-500/10 hover:-translate-y-2 transition-all duration-300">
+                    <!-- Hemat Badge -->
                     <div
-                        class="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold shadow-lg">
-                        💰 Hemat
+                        class="absolute top-4 right-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold shadow-lg">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Hemat</span>
                     </div>
 
                     <div
