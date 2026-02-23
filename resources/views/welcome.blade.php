@@ -1964,84 +1964,217 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
+    <section
+        class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            <!-- Section Header -->
+            <div class="text-center mb-16 space-y-4">
+                <div
+                    class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-4">
+                    FAQ
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     Pertanyaan <span class="gradient-text">yang Sering Diajukan</span>
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400">
-                    Temukan jawaban untuk pertanyaan Anda
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Temukan jawaban untuk pertanyaan yang paling sering ditanyakan tentang layanan kami
                 </p>
             </div>
 
+            <!-- FAQ Accordion -->
             <div class="space-y-4" x-data="{ active: null }">
-                <div
-                    class="rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden">
+
+                <!-- FAQ Item 1 -->
+                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-xl transition-all duration-300"
+                    :class="{ 'border-indigo-500 dark:border-indigo-500 shadow-xl': active === 1 }">
                     <button @click="active = active === 1 ? null : 1"
                         class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <span class="font-semibold text-left">Bagaimana cara memesan catering?</span>
-                        <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': active === 1 }"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-4">
+                            <!-- Icon -->
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center transition-transform duration-300"
+                                :class="{ 'scale-110 rotate-3': active === 1 }">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                </svg>
+                            </div>
+                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Bagaimana cara
+                                memesan catering?</span>
+                        </div>
+                        <!-- Arrow Icon -->
+                        <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400 transition-transform duration-300 flex-shrink-0 ml-4"
+                            :class="{ 'rotate-180': active === 1 }" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="active === 1" x-collapse class="px-6 pb-5 text-gray-600 dark:text-gray-400">
-                        Sangat mudah! Cukup daftar akun, pilih menu favorit Anda, tentukan jadwal pengiriman, lalu
-                        lakukan pembayaran. Tim kami akan mengantarkan pesanan tepat waktu.
+                    <div x-show="active === 1" x-collapse class="px-6 pb-5">
+                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Sangat mudah! Cukup daftar akun, pilih menu favorit Anda, tentukan jadwal pengiriman, lalu
+                            lakukan pembayaran. Tim kami akan mengantarkan pesanan tepat waktu.
+                        </div>
                     </div>
                 </div>
 
-                <div
-                    class="rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <!-- FAQ Item 2 -->
+                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-green-500 dark:hover:border-green-500 hover:shadow-xl transition-all duration-300"
+                    :class="{ 'border-green-500 dark:border-green-500 shadow-xl': active === 2 }">
                     <button @click="active = active === 2 ? null : 2"
                         class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <span class="font-semibold text-left">Apakah ada minimum order?</span>
-                        <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': active === 2 }"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center transition-transform duration-300"
+                                :class="{ 'scale-110 rotate-3': active === 2 }">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Apakah ada minimum
+                                order?</span>
+                        </div>
+                        <svg class="w-6 h-6 text-green-600 dark:text-green-400 transition-transform duration-300 flex-shrink-0 ml-4"
+                            :class="{ 'rotate-180': active === 2 }" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="active === 2" x-collapse class="px-6 pb-5 text-gray-600 dark:text-gray-400">
-                        Untuk pemesanan harian, minimum order 1 porsi. Untuk paket bulanan atau acara khusus, silakan
-                        hubungi CS kami untuk penawaran terbaik.
+                    <div x-show="active === 2" x-collapse class="px-6 pb-5">
+                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Untuk pemesanan harian, minimum order 1 porsi. Untuk paket bulanan atau acara khusus,
+                            silakan
+                            hubungi CS kami untuk penawaran terbaik.
+                        </div>
                     </div>
                 </div>
 
-                <div
-                    class="rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <!-- FAQ Item 3 -->
+                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-xl transition-all duration-300"
+                    :class="{ 'border-orange-500 dark:border-orange-500 shadow-xl': active === 3 }">
                     <button @click="active = active === 3 ? null : 3"
                         class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <span class="font-semibold text-left">Area mana saja yang dilayani?</span>
-                        <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': active === 3 }"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center transition-transform duration-300"
+                                :class="{ 'scale-110 rotate-3': active === 3 }">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Area mana saja
+                                yang dilayani?</span>
+                        </div>
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400 transition-transform duration-300 flex-shrink-0 ml-4"
+                            :class="{ 'rotate-180': active === 3 }" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="active === 3" x-collapse class="px-6 pb-5 text-gray-600 dark:text-gray-400">
-                        Kami melayani seluruh wilayah Jakarta, Bogor, Depok, Tangerang, dan Bekasi. Untuk area lain,
-                        silakan hubungi CS kami.
+                    <div x-show="active === 3" x-collapse class="px-6 pb-5">
+                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Kami melayani seluruh wilayah Jakarta, Bogor, Depok, Tangerang, dan Bekasi. Untuk area lain,
+                            silakan hubungi CS kami.
+                        </div>
                     </div>
                 </div>
 
-                <div
-                    class="rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 overflow-hidden">
+                <!-- FAQ Item 4 -->
+                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-red-500 dark:hover:border-red-500 hover:shadow-xl transition-all duration-300"
+                    :class="{ 'border-red-500 dark:border-red-500 shadow-xl': active === 4 }">
                     <button @click="active = active === 4 ? null : 4"
                         class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <span class="font-semibold text-left">Bagaimana jika saya ingin cancel pesanan?</span>
-                        <svg class="w-5 h-5 transition-transform" :class="{ 'rotate-180': active === 4 }"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center transition-transform duration-300"
+                                :class="{ 'scale-110 rotate-3': active === 4 }">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
+                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Bagaimana jika
+                                saya ingin cancel pesanan?</span>
+                        </div>
+                        <svg class="w-6 h-6 text-red-600 dark:text-red-400 transition-transform duration-300 flex-shrink-0 ml-4"
+                            :class="{ 'rotate-180': active === 4 }" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="active === 4" x-collapse class="px-6 pb-5 text-gray-600 dark:text-gray-400">
-                        Pembatalan dapat dilakukan maksimal H-1 sebelum jadwal pengiriman. Pembatalan pada hari yang
-                        sama tidak dapat dilakukan.
+                    <div x-show="active === 4" x-collapse class="px-6 pb-5">
+                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Pembatalan dapat dilakukan maksimal H-1 sebelum jadwal pengiriman. Pembatalan pada hari yang
+                            sama tidak dapat dilakukan.
+                        </div>
                     </div>
+                </div>
+
+                <!-- FAQ Item 5 - NEW -->
+                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-xl transition-all duration-300"
+                    :class="{ 'border-purple-500 dark:border-purple-500 shadow-xl': active === 5 }">
+                    <button @click="active = active === 5 ? null : 5"
+                        class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center transition-transform duration-300"
+                                :class="{ 'scale-110 rotate-3': active === 5 }">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                </svg>
+                            </div>
+                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Metode pembayaran
+                                apa saja yang tersedia?</span>
+                        </div>
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400 transition-transform duration-300 flex-shrink-0 ml-4"
+                            :class="{ 'rotate-180': active === 5 }" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div x-show="active === 5" x-collapse class="px-6 pb-5">
+                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Kami menerima pembayaran melalui transfer bank (BCA, Mandiri, BRI), e-wallet (GoPay, OVO,
+                            Dana), dan Cash on Delivery (COD) untuk area tertentu.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA -->
+            <div
+                class="mt-16 text-center p-8 rounded-3xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border-2 border-indigo-200 dark:border-indigo-800">
+                <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Masih ada pertanyaan?</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    Tim customer service kami siap membantu Anda 24/7
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                        <span>Chat dengan Kami</span>
+                    </a>
+                    <a href="#"
+                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-indigo-600 dark:border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <span>Email Kami</span>
+                    </a>
                 </div>
             </div>
         </div>
