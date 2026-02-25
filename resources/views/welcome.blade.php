@@ -303,6 +303,51 @@
         .animate-ping {
             animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
         }
+
+        @keyframes blob {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* Bounce Slow */
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 3s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -1901,218 +1946,191 @@
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section
-        class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-16 space-y-4">
-                <div
-                    class="inline-block px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-semibold mb-4">
-                    FAQ
-                </div>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
-                    Pertanyaan <span class="gradient-text">yang Sering Diajukan</span>
-                </h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                    Temukan jawaban untuk pertanyaan yang paling sering ditanyakan tentang layanan kami
-                </p>
-            </div>
+    <!-- CTA SECTION -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Animated Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600"></div>
 
-            <!-- FAQ Accordion -->
-            <div class="space-y-4" x-data="{ active: null }">
-
-                <!-- FAQ Item 1 -->
-                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-xl transition-all duration-300"
-                    :class="{ 'border-indigo-500 dark:border-indigo-500 shadow-xl': active === 1 }">
-                    <button @click="active = active === 1 ? null : 1"
-                        class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <div class="flex items-center gap-4">
-                            <!-- Icon -->
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center transition-transform duration-300"
-                                :class="{ 'scale-110 rotate-3': active === 1 }">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                                </svg>
-                            </div>
-                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Bagaimana cara
-                                memesan catering?</span>
-                        </div>
-                        <!-- Arrow Icon -->
-                        <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400 transition-transform duration-300 flex-shrink-0 ml-4"
-                            :class="{ 'rotate-180': active === 1 }" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div x-show="active === 1" x-collapse class="px-6 pb-5">
-                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Sangat mudah! Cukup daftar akun, pilih menu favorit Anda, tentukan jadwal pengiriman, lalu
-                            lakukan pembayaran. Tim kami akan mengantarkan pesanan tepat waktu.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-green-500 dark:hover:border-green-500 hover:shadow-xl transition-all duration-300"
-                    :class="{ 'border-green-500 dark:border-green-500 shadow-xl': active === 2 }">
-                    <button @click="active = active === 2 ? null : 2"
-                        class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <div class="flex items-center gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center transition-transform duration-300"
-                                :class="{ 'scale-110 rotate-3': active === 2 }">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Apakah ada minimum
-                                order?</span>
-                        </div>
-                        <svg class="w-6 h-6 text-green-600 dark:text-green-400 transition-transform duration-300 flex-shrink-0 ml-4"
-                            :class="{ 'rotate-180': active === 2 }" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div x-show="active === 2" x-collapse class="px-6 pb-5">
-                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Untuk pemesanan harian, minimum order 1 porsi. Untuk paket bulanan atau acara khusus,
-                            silakan
-                            hubungi CS kami untuk penawaran terbaik.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-xl transition-all duration-300"
-                    :class="{ 'border-orange-500 dark:border-orange-500 shadow-xl': active === 3 }">
-                    <button @click="active = active === 3 ? null : 3"
-                        class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <div class="flex items-center gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center transition-transform duration-300"
-                                :class="{ 'scale-110 rotate-3': active === 3 }">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Area mana saja
-                                yang dilayani?</span>
-                        </div>
-                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400 transition-transform duration-300 flex-shrink-0 ml-4"
-                            :class="{ 'rotate-180': active === 3 }" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div x-show="active === 3" x-collapse class="px-6 pb-5">
-                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Kami melayani seluruh wilayah Jakarta, Bogor, Depok, Tangerang, dan Bekasi. Untuk area lain,
-                            silakan hubungi CS kami.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-red-500 dark:hover:border-red-500 hover:shadow-xl transition-all duration-300"
-                    :class="{ 'border-red-500 dark:border-red-500 shadow-xl': active === 4 }">
-                    <button @click="active = active === 4 ? null : 4"
-                        class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <div class="flex items-center gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center transition-transform duration-300"
-                                :class="{ 'scale-110 rotate-3': active === 4 }">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </div>
-                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Bagaimana jika
-                                saya ingin cancel pesanan?</span>
-                        </div>
-                        <svg class="w-6 h-6 text-red-600 dark:text-red-400 transition-transform duration-300 flex-shrink-0 ml-4"
-                            :class="{ 'rotate-180': active === 4 }" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div x-show="active === 4" x-collapse class="px-6 pb-5">
-                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Pembatalan dapat dilakukan maksimal H-1 sebelum jadwal pengiriman. Pembatalan pada hari yang
-                            sama tidak dapat dilakukan.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 - NEW -->
-                <div class="group rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-xl transition-all duration-300"
-                    :class="{ 'border-purple-500 dark:border-purple-500 shadow-xl': active === 5 }">
-                    <button @click="active = active === 5 ? null : 5"
-                        class="w-full px-6 py-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all">
-                        <div class="flex items-center gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center transition-transform duration-300"
-                                :class="{ 'scale-110 rotate-3': active === 5 }">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                                </svg>
-                            </div>
-                            <span class="font-bold text-lg text-left text-gray-900 dark:text-white">Metode pembayaran
-                                apa saja yang tersedia?</span>
-                        </div>
-                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400 transition-transform duration-300 flex-shrink-0 ml-4"
-                            :class="{ 'rotate-180': active === 5 }" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div x-show="active === 5" x-collapse class="px-6 pb-5">
-                        <div class="pl-14 pr-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-                            Kami menerima pembayaran melalui transfer bank (BCA, Mandiri, BRI), e-wallet (GoPay, OVO,
-                            Dana), dan Cash on Delivery (COD) untuk area tertentu.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Bottom CTA -->
+        <!-- Animated Background Blobs -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl animate-blob"></div>
             <div
-                class="mt-16 text-center p-8 rounded-3xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border-2 border-indigo-200 dark:border-indigo-800">
-                <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Masih ada pertanyaan?</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-6">
-                    Tim customer service kami siap membantu Anda 24/7
+                class="absolute top-40 right-20 w-96 h-96 bg-white rounded-full blur-3xl animate-blob animation-delay-2000">
+            </div>
+            <div
+                class="absolute bottom-20 left-40 w-80 h-80 bg-white rounded-full blur-3xl animate-blob animation-delay-4000">
+            </div>
+        </div>
+
+        <!-- Decorative Grid Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid-pattern" x="0" y="0" width="40" height="40"
+                        patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-pattern)" class="text-white" />
+            </svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Badge with Icon -->
+            <div class="text-center mb-8">
+                <div
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-bold border border-white/30 shadow-lg animate-bounce-slow">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    <span>Promo Spesial Pelanggan Baru</span>
+                </div>
+            </div>
+
+            <!-- Main Heading -->
+            <div class="text-center mb-8">
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    Siap Nikmati Makanan Enak
+                    <span
+                        class="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 to-orange-300">
+                        Tanpa Ribet?
+                    </span>
+                </h2>
+                <p class="text-xl text-white/90 mb-4 max-w-2xl mx-auto leading-relaxed">
+                    Daftar sekarang dan dapatkan diskon <span class="font-bold text-yellow-300">20%</span> untuk
+                    pemesanan pertama Anda!
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-xl hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300">
+                <p class="text-base text-white/80 max-w-xl mx-auto">
+                    Tidak ada biaya tersembunyi, gratis ongkir area tertentu.
+                </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="{{ route('register') }}"
+                    class="group relative px-10 py-5 rounded-full bg-white text-indigo-600 font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 hover:scale-105 overflow-hidden">
+                    <span class="relative z-10 flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        <span>Chat dengan Kami</span>
-                    </a>
-                    <a href="#"
-                        class="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-indigo-600 dark:border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300">
+                        Daftar & Dapat Diskon 20%
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </span>
+                    <!-- Shine Effect -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000">
+                    </div>
+                </a>
+
+                <a href="#menu"
+                    class="group px-10 py-5 rounded-full border-2 border-white text-white font-bold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105">
+                    <span class="flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                         </svg>
-                        <span>Email Kami</span>
-                    </a>
+                        Lihat Menu Dulu
+                        <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <!-- Badge 1 -->
+                <div
+                    class="group relative p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="relative z-10 text-center">
+                        <div
+                            class="w-12 h-12 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-bold mb-1">Gratis Ongkir</div>
+                        <div class="text-white/70 text-sm">Area tertentu</div>
+                    </div>
+                </div>
+
+                <!-- Badge 2 -->
+                <div
+                    class="group relative p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="relative z-10 text-center">
+                        <div
+                            class="w-12 h-12 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-bold mb-1">Cancel Anytime</div>
+                        <div class="text-white/70 text-sm">Tanpa biaya</div>
+                    </div>
+                </div>
+
+                <!-- Badge 3 -->
+                <div
+                    class="group relative p-6 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                    <div
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="relative z-10 text-center">
+                        <div
+                            class="w-12 h-12 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="text-white font-bold mb-1">Garansi 100%</div>
+                        <div class="text-white/70 text-sm">Uang kembali</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="mt-12 text-center">
+                <div
+                    class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                    <div class="flex -space-x-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-400 to-purple-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                            A</div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                            B</div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-red-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                            C</div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-rose-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                            +</div>
+                    </div>
+                    <div class="text-white text-sm">
+                        <span class="font-bold">1000+ pelanggan</span> sudah bergabung minggu ini
+                    </div>
                 </div>
             </div>
         </div>
