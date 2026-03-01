@@ -2590,7 +2590,7 @@
                             </div>
                             <div class="ml-3">
                                 <p class="text-sm text-gray-400 group-hover:text-white transition-colors">+62
-                                    812-3456-7890</p>
+                                    085340305544</p>
                             </div>
                         </li>
                     </ul>
