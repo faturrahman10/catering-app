@@ -2576,7 +2576,7 @@
                             </div>
                             <div class="ml-3">
                                 <p class="text-sm text-gray-400 group-hover:text-white transition-colors">
-                                    info@cateringapp.com</p>
+                                    cateringmama@gmail.com</p>
                             </div>
                         </li>
                         <li class="flex items-start group">
