@@ -2561,8 +2561,8 @@
                                 </svg>
                             </div>
                             <div class="ml-3">
-                                <p class="text-sm text-gray-400 group-hover:text-white transition-colors">Jl. Contoh
-                                    No. 123, Jakarta Selatan, Indonesia 12345</p>
+                                <p class="text-sm text-gray-400 group-hover:text-white transition-colors">Jl satu No
+                                    2, Kec Tiga, Empat</p>
                             </div>
                         </li>
                         <li class="flex items-start group">
