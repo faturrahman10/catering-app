@@ -2609,7 +2609,7 @@
                             class="flex-1 px-6 py-3 rounded-full bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors">
                         <button
                             class="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:shadow-lg hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300">
-                            Subscribe
+                            Subscribe now
                         </button>
                     </div>
                 </div>
